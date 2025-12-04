@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Plumbing Company | Little Elm - Oak Point - Aubrey - Prosper</title>
+  <meta name="description" content="The Plumbing Company provides fast, reliable residential plumbing with upfront flat-rate pricing in Little Elm, Oak Point, Aubrey, and Prosper.">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0b2746;
+      --navy-dark: #081b31;
+      --sky: #e7f0f9;
+      --card: #ffffff;
+      --accent: #ff7a1a;
+      --accent-dark: #d95f05;
+      --text: #162433;
+      --muted: #4c5b6b;
+      --shadow: 0 18px 40px rgba(11, 39, 70, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f6f8fb 0%, #f9fbff 40%, #f6f8fb 100%);
+      scroll-behavior: smooth;
+    }
+    h1, h2, h3, h4 { font-family: 'Manrope', 'Work Sans', sans-serif; color: var(--navy); margin: 0 0 12px; letter-spacing: -0.02em; }
+    p { margin: 0 0 12px; line-height: 1.6; }
+    a { color: var(--navy); text-decoration: none; }
+
+    .top-bar {
+      background: var(--accent);
+      color: #fff;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      font-size: 14px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(11, 39, 70, 0.97);
+      box-shadow: 0 6px 18px rgba(11, 39, 70, 0.2);
+      backdrop-filter: blur(6px);
+      overflow: hidden;
+    }
+    .nav-bar {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 14px;
+      gap: 10px;
+      color: #fff;
+      min-height: 78px;
+      overflow: hidden;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+      height: 90px;
+      overflow: hidden;
+    }
+    .logo-img {
+      height: 156px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+      background: transparent;
+      filter: brightness(0) invert(1);
+      mix-blend-mode: screen;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+    nav a {
+      color: #d7e5f7;
+      font-weight: 600;
+      padding: 6px 10px;
+      border-radius: 8px;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
+    nav a:hover, nav a:focus { color: #fff; background: rgba(255,255,255,0.08); }
+
+    .cta-inline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+      text-decoration: none;
+    }
+    .btn.primary {
+      background: linear-gradient(180deg, #ff9b4a 0%, #ff7a1a 100%);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    }
+    .btn.primary:hover { background: linear-gradient(180deg, #ffad68 0%, #ff8a2f 100%); transform: translateY(-1px); }
+    .btn.outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.6);
+      box-shadow: none;
+    }
+    .btn.outline:hover { border-color: #fff; transform: translateY(-1px); }
+
+    .mobile-toggle {
+      display: none;
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 20% 20%, rgba(255,122,26,0.12), transparent 24%),
+                  radial-gradient(circle at 80% 0%, rgba(15,60,104,0.14), transparent 30%),
+                  linear-gradient(135deg, #0b2746 0%, #0f3c68 45%, #0b2746 100%);
+      color: #fff;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1582719478145-3f7d3f4c8dfe?auto=format&fit=crop&w=1600&q=80') center/cover;
+      opacity: 0.16;
+      mix-blend-mode: screen;
+    }
+    .hero-inner {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8px 18px 20px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 14px;
+      align-items: start;
+      z-index: 1;
+    }
+    .hero-copy { display: flex; flex-direction: column; gap: 8px; align-self: flex-start; padding-top: 10px; }
+    .eyebrow { color: #9cc7ff; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; font-size: 13px; margin-bottom: 6px; }
+    .hero h1 { color: #fff; font-size: clamp(24px, 2.6vw, 36px); line-height: 1.1; }
+    .hero .subhead { color: #e0edff; font-size: 16px; margin: 4px 0 8px; max-width: 620px; }
+    .pill-stack { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); padding: 10px; border-radius: 12px; }
+    .pill-stack h4 { color: #e6f0ff; margin: 0 0 6px; font-size: 12px; letter-spacing: 0.02em; text-transform: uppercase; }
+    .hero .bullet-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+    .chip {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cta-row { display: flex; gap: 10px; flex-wrap: wrap; margin: 4px 0 0; }
+    .trust-bar { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; font-size: 13px; }
+    .trust-pill { background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18); padding: 10px 14px; border-radius: 14px; display: flex; align-items: center; gap: 10px; color: #e4efff; font-weight: 600; }
+
+    .card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.05);
+    }
+    .hero-card {
+      position: relative;
+      margin-top: 12px;
+      padding: 24px 28px 16px;
+      align-self: flex-start;
+      margin-left: 24px;
+    }
+    .hero-card h3 { margin: 0 0 0; font-size: 24px; }
+    .contact-form { display: grid; gap: 18px; }
+    .field {
+      display: grid;
+      gap: 9px;
+      margin-bottom: 8px;
+    }
+    .field label { font-weight: 700; font-size: 14px; color: rgba(11,39,70,0.7); }
+    input, select, textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 6px;
+      border: 1px solid rgba(0,0,0,0.12);
+      font-size: 15px;
+      font-family: inherit;
+      background: #f9fbff;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+    textarea::placeholder {
+      transition: opacity 0.25s ease;
+      opacity: 0.55;
+      color: #8a8f99;
+      font-size: 14px;
+    }
+    input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,122,26,0.18); background: #fff; }
+    textarea { min-height: 72px; resize: vertical; }
+    .form-note { font-size: 12px; color: var(--muted); }
+    .diag-pane { display: none; }
+    .diag-pane.active { display: block; }
+    .ai-results { display: grid; gap: 14px; }
+    .ai-card { border: 1px solid #e4ebf3; border-radius: 12px; padding: 14px 16px; background: #f9fbff; }
+    .ai-card strong { color: var(--navy); }
+    .badge { display: inline-block; padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; }
+    .badge.warn { background: rgba(255,122,26,0.12); color: var(--accent-dark); }
+    .badge.safe { background: rgba(14,137,84,0.12); color: #0e8954; }
+    .giveaway-wrap { width: 100%; margin: 0 auto 14px; padding: 0; }
+    .giveaway-card {
+      margin: 0;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(11,39,70,0.35));
+      color: #eaf3ff;
+      box-shadow: inset 0 -1px 0 rgba(255,255,255,0.06);
+      display: block;
+      width: 100%;
+    }
+    .giveaway-inner { max-width: 1140px; margin: 0 auto; }
+    .giveaway-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: #ffcba4; font-weight: 800; margin: 0 0 3px 4px; line-height: 1.25; }
+    .giveaway-note { margin: 0 0 4px 4px; font-weight: 600; color: #eaf3ff; font-size: 12px; line-height: 1.35; }
+    .giveaway-list { margin: 6px 0 0; padding-left: 24px; color: #d7e5f7; }
+    .giveaway-list li { list-style: disc; margin-bottom: 3px; font-size: 12px; font-weight: 600; }
+    .giveaway-list li:last-child { margin-bottom: 0; }
+    .bullet-style { font-size: 14px; font-weight: 700; color: #eaf3ff; }
+    .giveaway-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+
+    .section { max-width: 1140px; margin: 0 auto; padding: 80px 18px; position: relative; }
+    .section header h2 { margin-bottom: 6px; }
+    .section header p { color: var(--muted); max-width: 700px; }
+
+    .service-banner {
+      background: rgba(11,39,70,0.9);
+      color: #eaf3ff;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+    }
+    .service-banner h2 { color: #eaf3ff; margin: 0 0 6px; }
+    .service-banner p { color: #cfd8e6; margin: 0; }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+      margin-top: 18px;
+    }
+    .service-card {
+      border: 1px solid #e7ecf5;
+      border-radius: 18px;
+      padding: 22px;
+      background: #fff;
+      transition: transform 0.18s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position: relative;
+    }
+    .service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.06); border-color: rgba(11,39,70,0.15); }
+    .icon-circle {
+      min-width: 54px;
+      min-height: 54px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(255,161,74,0.18), rgba(255,122,26,0.16));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #d45f07;
+      font-weight: 800;
+      margin-bottom: 14px;
+      border: 1px solid rgba(255,122,26,0.25);
+      letter-spacing: 0.05em;
+    }
+    .service-card h3 { margin: 0 0 12px; color: #0b2746; }
+    .service-card p { color: var(--text); }
+    .price { font-weight: 800; color: var(--navy); margin-top: 12px; }
+    .small { font-size: 13px; color: var(--muted); }
+
+    .contact-split {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: start;
+      margin-top: 32px;
+    }
+    .contact-details {
+      background: linear-gradient(135deg, rgba(11,39,70,0.08), rgba(11,39,70,0.02));
+      border: 1px solid #d9e4f3;
+      border-radius: 18px;
+      padding: 22px;
+    }
+    .contact-details h3 { margin-bottom: 4px; }
+    .contact-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; color: var(--muted); font-weight: 600; }
+    .contact-row strong { color: var(--navy); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .why-card {
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid #e5ebf3;
+      background: #fff;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+    .testimonials { margin-top: 28px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .quote { padding: 18px; background: #0f3c68; color: #eaf3ff; border-radius: 14px; box-shadow: 0 12px 26px rgba(15,60,104,0.25); }
+    .quote strong { color: #fff; }
+
+    footer {
+      background: var(--navy-dark);
+      color: #d7e5f7;
+      padding: 38px 18px 48px;
+      margin-top: 40px;
+    }
+    .footer-inner { max-width: 1140px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .footer-inner a { color: #fff; font-weight: 600; }
+    .footer-heading { color: #fff; margin-bottom: 10px; }
+    .footer-note { color: #9db7d6; font-size: 14px; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 960px) {
+      nav { display: none; }
+      body.nav-open nav { display: flex; position: absolute; top: 100%; right: 18px; background: #0b2746; padding: 12px; border-radius: 12px; box-shadow: var(--shadow); flex-direction: column; min-width: 200px; }
+      .mobile-toggle { display: inline-flex; }
+      .nav-bar { align-items: center; min-height: 84px; padding: 8px 12px; }
+      .logo { height: 76px; }
+      .hero-inner { grid-template-columns: 1fr; padding: 18px 14px 30px; gap: 10px; }
+      .hero-card { margin-top: 0; }
+      .contact-split { grid-template-columns: 1fr; }
+      .cta-inline { flex-wrap: wrap; justify-content: flex-end; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-bar { padding: 12px 14px; }
+      .hero { border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; }
+      .cta-row .btn { width: 100%; justify-content: center; }
+      .contact-details, .card { padding: 18px; }
+      .top-bar { font-size: 13px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "The Plumbing Company",
+  "image": "https://theplumbingcompany-tx.com/logo.png",
+  "telephone": "972-555-0136",
+  "url": "https://theplumbingcompany-tx.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "REPLACE_WITH_STREET_ADDRESS",
+    "addressLocality": "Little Elm",
+    "addressRegion": "TX",
+    "postalCode": "75036",
+    "addressCountry": "US"
+  },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "33.16234",
+      "longitude": "-96.93780"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Little Elm", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "Oak Point", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "Aubrey", "containedInPlace": { "@type": "State", "name": "Texas" } },
+      { "@type": "City", "name": "Prosper", "containedInPlace": { "@type": "State", "name": "Texas" } }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    },
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Plumbing Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Water Heater Repair", "description": "Same-day water heater repair and replacement services" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drain Cleaning", "description": "Professional drain cleaning and clearing services" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Plumbing", "description": "24/7 emergency plumbing services" } }
+      ]
+    }
+  }
+  </script>
+</head>
+<body>
+  <div class="top-bar" style="background: rgba(11, 39, 70, 0.75); color:#fff;">24/7 Emergency Service - Licensed & Insured - Upfront Flat-Rate Pricing</div>
+  <header>
+    <div class="nav-bar">
+      <div class="logo" aria-label="The Plumbing Company">
+        <img class="logo-img" src="ChatGPT Image Dec 4, 2025, 10_19_00 AM.png" alt="The Plumbing Company logo">
+      </div>
+      <nav aria-label="Primary">
+        <a href="#hero">Home</a>
+        <a href="#services">Services</a>
+        <a href="#schedule">Pricing & Scheduling</a>
+        <a href="#why">Why Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <div class="cta-inline">
+        <a class="btn outline" href="tel:9725550136">Call 972-555-0136</a>
+        <button class="mobile-toggle" aria-label="Toggle menu">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="giveaway-wrap">
+        <div class="giveaway-card">
+          <div class="giveaway-inner">
+            <div class="giveaway-label" style="text-shadow: 0 0 10px rgba(255,255,255,0.4);">Win Our Grand Prize Giveaway</div>
+            <div class="giveaway-note">Every service = automatic entries • 2× BONUS ENTRIES until March 31!</div>
+            <ul class="giveaway-list">
+              <li class="bullet-style">Prize Reveal: April 1</li>
+              <li class="bullet-style">Winner Drawn: Christmas Eve</li>
+            </ul>
+            <a class="btn" href="#why" style="border: none; background: transparent; padding: 10px 8px 4px; font-size: 11px; color:#eaf3ff; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">See Details →</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-inner" style="align-items:start;">
+        <div class="hero-copy reveal">
+          <div class="form-note" style="color:#d7e5f7; font-weight:700; margin-bottom:4px;">Trusted by homeowners across North DFW</div>
+          <div class="eyebrow">Proudly serving Little Elm, Oak Point, Aubrey & Prosper</div>
+          <h1>Fast, Reliable Residential Plumbing Service across North DFW. Upfront, Flat-Rate Pricing Guaranteed.</h1>
+          <p class="subhead" style="max-width: 640px;">Our Licensed & Insured Professionals deliver same-day solutions for all major residential needs throughout the North Dallas region, including: water heater installation and repair, comprehensive drain cleaning, faucet repair, slab leak detection, and 24/7 emergency plumbing. We proudly guarantee clear prices, clean work, and zero surprises in all service areas, including Little Elm (75036), Oak Point (75068), Aubrey (76227), and Prosper (75078).</p>
+          <p class="form-note" style="color:#e0edff; font-weight:700; margin:4px 0 10px;">Instant estimates. Same-day service. No surprises, ever.</p>
+        </div>
+        <div class="hero-card card reveal">
+          <h3 style="margin-bottom:6px;">Instant Estimate</h3>
+
+          <div class="diag-pane active" data-pane="1" style="display:block; padding-top:12px; padding-bottom:8px;">
+            <div class="field">
+              <label for="hero-issue">Describe the issue</label>
+              <textarea id="hero-issue" name="issue" placeholder='"Water heater leaking from top. Started this morning. Need same-day fix."' required></textarea>
+            </div>
+           <div class="field" style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+              <label for="hero-photo" style="margin:0; font-size:13px; font-weight:600; color: rgba(11,39,70,0.7);">Upload photos (for a most accurate estimate)</label>
+              <input id="hero-photo" name="photo" type="file" accept="image/*" multiple required style="flex:1 1 auto; min-width:200px;">
+            </div>
+            <div class="form-note" style="margin-top:12px; margin-bottom:28px;">
+              <div style="display:flex; gap:8px; align-items:center; justify-content:center; font-weight:600; flex-wrap:wrap; font-size:9px; opacity:0.7; color:#0b2746;">
+                <span style="white-space:nowrap;">✔️ 30-second results</span>
+                <span style="white-space:nowrap;">🔒 Private & secure</span>
+                <span style="white-space:nowrap;">⭐ 4.9 rating (47 reviews)</span>
+              </div>
+            </div>
+            <div style="display:flex; justify-content:center; margin-top:32px;">
+              <button class="btn primary" id="diag-run" data-track="ai_diagnostic_submit" style="font-size:16px; padding:10px 16px; width:100%;">Get Instant Estimate</button>
+            </div>
+            <div class="form-note form-response" aria-live="polite"></div>
+            <div class="form-note form-response" aria-live="polite"></div>
+          </div>
+
+          <div class="diag-pane" data-pane="2" style="padding-bottom:12px;">
+            <div class="field">
+              <label>Top potential issues</label>
+              <div id="diag-summary" class="form-note" style="margin-bottom:8px;"></div>
+              <div id="diag-results" class="ai-results"></div>
+            </div>
+            <button class="btn primary" id="diag-schedule" data-track="ai_schedule">Schedule This</button>
+            <button class="btn outline" id="diag-back1">Back</button>
+          </div>
+
+          <div class="diag-pane" data-pane="3" style="padding-bottom:12px;">
+            <form id="heroForm" class="contact-form">
+              <div class="field">
+                <label for="hero-name">Name</label>
+                <input id="hero-name" name="name" type="text" placeholder="Your name" required>
+              </div>
+              <div class="field">
+                <label for="hero-email">Email</label>
+                <input id="hero-email" name="email" type="email" placeholder="you@example.com" required>
+              </div>
+              <div class="field">
+                <label for="hero-phone">Phone</label>
+                <input id="hero-phone" name="phone" type="tel" placeholder="(###) ###-####" required>
+              </div>
+              <div class="field">
+                <label for="hero-address">Address</label>
+                <input id="hero-address" name="address" type="text" placeholder="Street, City, ZIP" required>
+              </div>
+              <button class="btn primary" type="submit" data-track="ai_contact_submit" style="margin-top:10px;">Submit & Confirm</button>
+              <div class="form-note form-response" aria-live="polite"></div>
+            </form>
+            <button class="btn outline" id="diag-back2">Back</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="service-banner">
+        <h2>Core Plumbing Services</h2>
+        <p>Upfront flat-rate pricing on common jobs so you know what to expect before we start.</p>
+      </div>
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <div class="icon-circle">DC</div>
+          <h3>Drain Cleaning</h3>
+          <p>Clearing clogged sinks, tubs, and main lines with professional-grade equipment.</p>
+          <div class="price">$99 - $189 flat-rate*</div>
+          <div class="small">*Most single-line clogs. Final quote on site.</div>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle">LR</div>
+          <h3>Leak Repair</h3>
+          <p>Stop leaks fast to prevent damage - from dripping faucets to hidden pipe leaks.</p>
+          <div class="price">From $149*</div>
+          <div class="small">Includes diagnosis and standard repair.</div>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle">WH</div>
+          <h3>Water Heaters</h3>
+          <p>Repair or replace tank and tankless units for reliable hot water.</p>
+          <div class="price">$395 - $1,650 range</div>
+          <div class="small">Price depends on unit type and capacity.</div>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle">FX</div>
+          <h3>Fixture Installs</h3>
+          <p>Faucets, toilets, disposals, and showers installed with clean finishes.</p>
+          <div class="price">From $125 per fixture</div>
+          <div class="small">Hardware supplied or provided by you.</div>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle">SC</div>
+          <h3>Sewer Camera & Locating</h3>
+          <p>Camera inspections to pinpoint breaks, roots, and blockages before digging.</p>
+          <div class="price">$249 - $349</div>
+          <div class="small">Includes video findings and next steps.</div>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle">24/7</div>
+          <h3>24/7 Emergencies</h3>
+          <p>Immediate response for burst pipes, major leaks, backups, and no-hot-water calls.</p>
+          <div class="price">Call for fast quote</div>
+          <div class="small">Priority dispatch. We pick up day or night.</div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:16px; color: var(--muted);">Need something else? Call us at <a href="tel:9725550136" style="color:var(--accent); font-weight:700;">(972) 555-0136</a> for a custom quote.</p>
+    </section>
+
+    <section id="schedule" class="section" style="padding-top: 70px;">
+      <header>
+        <h2>Schedule Your Service</h2>
+        <p>Tell us what you need and we'll confirm your flat-rate price and arrival window.</p>
+      </header>
+      <div class="contact-split">
+        <div class="contact-details reveal">
+          <h3>Quick ways to reach us</h3>
+          <div class="contact-row"><strong>Phone:</strong> (972) 555-0136 (tap to call)</div>
+          <div class="contact-row"><strong>Email:</strong> dispatch@theplumbingco.com</div>
+          <div class="contact-row"><strong>Area:</strong> Little Elm - Oak Point - Aubrey - Prosper</div>
+          <div class="contact-row"><strong>Availability:</strong> Same-day appointments available</div>
+          <p class="form-note" style="margin-top:10px;">Flat-rate pricing available on most jobs. No surprise add-ons ever.</p>
+          <a class="btn primary" href="tel:9725550136" style="margin-top:14px;">Call Now</a>
+        </div>
+        <div id="contact" class="card reveal">
+          <h3>Online Request</h3>
+          <form id="contactForm" class="contact-form">
+            <div class="field">
+              <label for="contact-name">Name</label>
+              <input id="contact-name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="field">
+              <label for="contact-phone">Phone</label>
+              <input id="contact-phone" name="phone" type="tel" placeholder="(###) ###-####" required>
+            </div>
+            <div class="field">
+              <label for="contact-email">Email</label>
+              <input id="contact-email" name="email" type="email" placeholder="you@example.com">
+            </div>
+            <div class="field">
+              <label for="contact-service">Service</label>
+              <select id="contact-service" name="service">
+                <option>Drain Cleaning</option>
+                <option>Leak Repair</option>
+                <option>Water Heater</option>
+                <option>Fixture Install</option>
+                <option>Emergency</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="contact-message">Your Message</label>
+              <textarea id="contact-message" name="message" placeholder="Briefly describe the issue" required></textarea>
+            </div>
+            <div class="field">
+              <label for="contact-time">Preferred Date/Time</label>
+              <input id="contact-time" name="time" type="text" placeholder="Tomorrow AM, This afternoon, etc.">
+            </div>
+            <button class="btn primary" type="submit">Submit Request</button>
+            <div class="form-note form-response" aria-live="polite"></div>
+            <div class="form-note">Your info stays private. We use it only to contact you about your service request.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section" style="padding-top: 10px;">
+      <header>
+        <h2>Why Choose The Plumbing Company?</h2>
+        <p>Local, transparent, and focused on making every visit hassle-free for North Texas homeowners.</p>
+      </header>
+      <div class="why-grid">
+        <div class="why-card reveal">
+          <div class="icon-circle">5/5</div>
+          <h3>5-Star Rated</h3>
+          <p>Homeowners love our punctuality, clean work, and courteous techs.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon-circle">24/7</div>
+          <h3>24/7 Emergency Ready</h3>
+          <p>On-call team when bursts, backups, or no-hot-water emergencies can't wait.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon-circle">$$</div>
+          <h3>Upfront Flat Rates</h3>
+          <p>Know the number before work begins - no surprise add-ons.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon-circle">LIC</div>
+          <h3>Licensed & Insured</h3>
+          <p>State-licensed plumbers who respect your home and protect your peace of mind.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon-circle">FAST</div>
+          <h3>Same-Day Solutions</h3>
+          <p>Dispatch from nearby so we can solve problems the day you call.</p>
+        </div>
+        <div class="why-card reveal">
+          <div class="icon-circle">CLEAN</div>
+          <h3>Clean Home Promise</h3>
+          <p>Shoe covers on, drop cloths down, and tidy clean-up before we leave.</p>
+        </div>
+      </div>
+      <div class="testimonials">
+        <div class="quote reveal">
+          "They answered on a Sunday, fixed our burst pipe within an hour, and the price was exactly what they quoted."<br><br><strong>- Jane D., Aubrey</strong>
+        </div>
+        <div class="quote reveal">
+          "Upfront flat rate, no surprises. They left the area cleaner than they found it."<br><br><strong>- Marcus L., Little Elm</strong>
+        </div>
+        <div class="quote reveal">
+          "Tech arrived on time, explained every option, and my water heater was running fast."<br><br><strong>- Priya S., Prosper</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="service-areas">
+      <header>
+        <h2>Plumbing Service Areas</h2>
+        <p>We proudly serve homeowners across North DFW with same-day service and flat-rate pricing.</p>
+      </header>
+      <ul class="area-list" style="list-style: disc; padding-left: 18px; color: var(--muted); display: grid; gap: 6px; max-width: 600px;">
+        <li><strong>Little Elm (75036)</strong> — Same-day emergency response</li>
+        <li><strong>Oak Point</strong> — Residential plumbing and leak repair</li>
+        <li><strong>Aubrey</strong> — Water heater specialists</li>
+        <li><strong>Prosper</strong> — 24/7 emergency plumbing</li>
+      </ul>
+    </section>
+
+    <section class="section" id="faq">
+      <header>
+        <h2>Frequently Asked Questions</h2>
+        <p>Quick answers for Little Elm and nearby homeowners.</p>
+      </header>
+      <div class="faq-list" style="display:grid; gap:12px; max-width:800px;">
+        <div class="faq-item">
+          <h3>What is your emergency response time in Little Elm?</h3>
+          <p>We prioritize emergencies with arrival typically within 2–4 hours, and 1–2 hours for burst pipes or major leaks in 76227.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer upfront flat-rate pricing?</h3>
+          <p>Yes. We provide your flat-rate before work begins—no hidden fees, no surprises.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How much does water heater replacement cost in Little Elm?</h3>
+          <p>Standard 40–50 gallon replacements typically range $1,600–$2,200 including removal and install; tankless systems $2,800–$4,500.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Are you licensed and insured?</h3>
+          <p>Yes. Fully licensed in Texas and insured; all work meets code and is warrantied.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Which areas do you serve?</h3>
+          <p>Little Elm (76227), Oak Point, Aubrey, Prosper, and nearby North DFW communities.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="logo" style="margin-bottom:8px;" aria-label="The Plumbing Company">
+          <img class="logo-img" src="ChatGPT Image Dec 4, 2025, 10_19_00 AM.png" alt="The Plumbing Company logo">
+        </div>
+        <div class="footer-note">Serving Little Elm, Oak Point, Aubrey, Prosper and nearby communities.</div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-note">Phone: <a href="tel:9725550136">(972) 555-0136</a></div>
+        <div class="footer-note">Email: <a href="mailto:dispatch@theplumbingco.com">dispatch@theplumbingco.com</a></div>
+        <div class="footer-note">Hours: Mon-Sat 7a-7p - 24/7 emergencies</div>
+      </div>
+      <div>
+        <div class="footer-heading">Links</div>
+        <div class="footer-note"><a href="#services">Services</a></div>
+        <div class="footer-note"><a href="#schedule">Schedule</a></div>
+        <div class="footer-note"><a href="#why">Why Us</a></div>
+        <div class="footer-note"><a href="#contact">Contact</a></div>
+      </div>
+      <div>
+        <div class="footer-heading">Peace of Mind</div>
+        <div class="footer-note">Licensed - Insured - Upfront Pricing</div>
+        <div class="footer-note">Clean Home Promise</div>
+        <div class="footer-note">Fast local dispatch</div>
+      </div>
+    </div>
+    <div class="footer-note" style="text-align:center; margin-top:22px;">(c) 2025 The Plumbing Company. All rights reserved.</div>
+  </footer>
+
+  <script>
+    const toggle = document.querySelector('.mobile-toggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('nav-open');
+    });
+
+    const bindForm = (id, handler) => {
+      const form = document.getElementById(id);
+      if (!form) return;
+      const response = form.querySelector('.form-response');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (handler) {
+          handler(form, response);
+        } else if (response) {
+          response.textContent = "Thank you! We'll call you shortly to confirm details.";
+          setTimeout(() => { response.textContent = ''; }, 6000);
+        }
+        form.reset();
+      });
+    };
+
+    bindForm('contactForm');
+
+    // Rotate textarea placeholder examples
+    (function() {
+      const textarea = document.getElementById('hero-issue');
+      if (!textarea) return;
+      const examples = [
+        '"Water heater leaking from top. Started this morning. Need same-day fix."',
+        '"Kitchen sink backing up and gurgling. Started yesterday evening."',
+        '"No hot water in shower. 10-year-old gas water heater."'
+      ];
+      let idx = 0;
+      setInterval(() => {
+        const next = (idx + 1) % examples.length;
+        const ph = textarea.placeholder;
+        const phEl = textarea;
+        phEl.style.setProperty('--ph-opacity', '0');
+        phEl.style.opacity = '1';
+        phEl.style.transition = 'none';
+        setTimeout(() => {
+          phEl.setAttribute('placeholder', examples[next]);
+          idx = next;
+          phEl.style.transition = '';
+        }, 200);
+      }, 6000);
+    })();
+
+    // Diagnostic AI carousel logic
+    (function() {
+      const panes = document.querySelectorAll('.diag-pane');
+      const dots = document.querySelectorAll('.step-dot');
+      const resultsEl = document.getElementById('diag-results');
+      const summaryEl = document.getElementById('diag-summary');
+      const runBtn = document.getElementById('diag-run');
+      const scheduleBtn = document.getElementById('diag-schedule');
+      const back1 = document.getElementById('diag-back1');
+      const back2 = document.getElementById('diag-back2');
+
+      let current = 1;
+      const priceBands = {
+        'Water Heater': '$350 - $550',
+        'Leak Repair': '$149 - $450',
+        'Drain/Clog': '$150 - $400',
+        'Fixture Install': '$125 - $350',
+        'Emergency': 'Call for fast quote',
+        'Other': '$150 - $650'
+      };
+
+      function showStep(n) {
+        current = n;
+        panes.forEach(p => p.classList.toggle('active', p.dataset.pane === String(n)));
+      }
+
+      function buildResults(service, zip, issue) {
+        const items = [
+          { title: `${service} - likely cause`, detail: issue ? issue.slice(0, 110) : 'Most common fault based on your description.', range: priceBands[service] || '$150 - $650', severity: 'Same-day recommended' },
+          { title: 'Secondary possibility', detail: 'Less likely but possible; we verify on arrival.', range: '$120 - $300', severity: 'Next-day is fine' },
+          { title: 'Worst-case scenario', detail: 'If parts replacement is needed.', range: '$400 - $1,100', severity: 'Plan for parts' }
+        ];
+        summaryEl.textContent = `Location: ${zip || 'your area'} • Category: ${service}`;
+        resultsEl.innerHTML = items.map(item => `
+          <div class="ai-card">
+            <strong>${item.title}</strong><br>
+            <span class="form-note" style="display:block; margin:6px 0;">${item.detail}</span>
+            <div class="form-note"><strong>Price:</strong> ${item.range}</div>
+            <div class="form-note"><span class="badge warn">${item.severity}</span></div>
+          </div>
+        `).join('');
+      }
+
+      if (runBtn) {
+        runBtn.addEventListener('click', () => {
+          const service = document.getElementById('hero-service')?.value || 'Other';
+          const zip = document.getElementById('hero-zip')?.value || '';
+          const issue = document.getElementById('hero-issue')?.value || '';
+          buildResults(service, zip, issue);
+          showStep(2);
+        });
+      }
+
+      if (scheduleBtn) {
+        scheduleBtn.addEventListener('click', () => showStep(3));
+      }
+      if (back1) back1.addEventListener('click', () => showStep(1));
+      if (back2) back2.addEventListener('click', () => showStep(2));
+
+      showStep(1);
+    })();
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // --- Lightweight UID + tracking (client-side; safe no-op if backend absent) ---
+    (function() {
+      const cookieName = 'plumb_uid';
+      const oneYear = 60 * 60 * 24 * 365;
+
+      function generateUID() {
+        const prefix = 'plumb_';
+        const ts = Date.now().toString(36);
+        const rand = Math.random().toString(36).slice(2, 8);
+        return prefix + ts + rand;
+      }
+
+      function setCookie(name, value, seconds) {
+        const expires = new Date(Date.now() + seconds * 1000).toUTCString();
+        document.cookie = `${name}=${value}; expires=${expires}; path=/; SameSite=Lax`;
+      }
+
+      function getCookie(name) {
+        return document.cookie.split(';').map(c => c.trim()).find(c => c.startsWith(name + '='))?.split('=')[1];
+      }
+
+      function getUID() {
+        let uid = getCookie(cookieName) || localStorage.getItem(cookieName);
+        if (!uid) {
+          uid = generateUID();
+          setCookie(cookieName, uid, oneYear);
+          localStorage.setItem(cookieName, uid);
+        }
+        return uid;
+      }
+
+      const UID = getUID();
+
+      function track(event, data = {}) {
+        const payload = {
+          uid: UID,
+          event,
+          data,
+          page: location.pathname,
+          referrer: document.referrer,
+          ts: new Date().toISOString(),
+          device: {
+            ua: navigator.userAgent,
+            lang: navigator.language,
+            screen: `${window.screen.width}x${window.screen.height}`,
+            mobile: /Mobi|Android/i.test(navigator.userAgent)
+          }
+        };
+
+        // Store locally as fallback (helps debugging without backend)
+        const key = 'plumb_local_events';
+        const events = JSON.parse(localStorage.getItem(key) || '[]');
+        events.push(payload);
+        localStorage.setItem(key, JSON.stringify(events).slice(-5000)); // keep it light
+
+        // Send to backend if available
+        if (navigator.sendBeacon) {
+          try { navigator.sendBeacon('/api/track', new Blob([JSON.stringify(payload)], { type: 'application/json' })); } catch(e) {}
+        } else {
+          fetch('/api/track', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          }).catch(() => {});
+        }
+      }
+
+      // Page view
+      track('page_view');
+
+      // CTA clicks and form submissions
+      document.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-track]');
+        if (btn) track('click', { id: btn.dataset.track, text: btn.textContent.trim().slice(0,80) });
+      });
+
+      document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', () => {
+          track('form_submit', { id: form.id || 'unknown_form' });
+        });
+      });
+
+      // Expose for debugging
+      window.plumbTrack = track;
+      window.plumbUID = UID;
+    })();
+
+    // FAQ schema
+    (function() {
+      const faqSchema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is your emergency response time in Little Elm?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We prioritize emergencies with arrival typically within 2–4 hours, and 1–2 hours for burst pipes or major leaks in 76227."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer upfront flat-rate pricing?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We provide your flat-rate before work begins—no hidden fees, no surprises."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does water heater replacement cost in Little Elm?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standard 40–50 gallon replacements typically range $1,600–$2,200 including removal and install; tankless systems $2,800–$4,500."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are you licensed and insured?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Fully licensed in Texas and insured; all work meets code and is warrantied."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which areas do you serve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Little Elm (76227), Oak Point, Aubrey, Prosper, and nearby North DFW communities."
+            }
+          }
+        ]
+      };
+      const faqScript = document.createElement('script');
+      faqScript.type = 'application/ld+json';
+      faqScript.textContent = JSON.stringify(faqSchema);
+      document.head.appendChild(faqScript);
+    })();
+  </script>
+</body>
+</html>
