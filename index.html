@@ -195,19 +195,27 @@
       padding: 32px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.05);
     }
+    /* HERO CARD - unified styles */
     .hero-card {
       position: relative;
-      margin-top: 12px;
-      padding: 24px 28px 16px;
+      margin-top: 24px;
+      padding: 18px 24px 14px;
       align-self: flex-start;
       margin-left: 24px;
+      min-height: 380px;
+      transition: height 0.2s ease;
+      overflow: hidden;
     }
-    .hero-card h3 { margin: 0 0 0; font-size: 24px; }
+    .hero-card h3 { margin: 0 0 40px; font-size: 24px; }
+    .diag-pane .field:first-of-type { margin-top: 28px; }
     .contact-form { display: grid; gap: 18px; }
-    .field {
+    .hero-card .field {
       display: grid;
       gap: 9px;
       margin-bottom: 8px;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
     }
     .field label { font-weight: 700; font-size: 14px; color: rgba(11,39,70,0.7); }
     input, select, textarea {
@@ -229,21 +237,27 @@
     input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,122,26,0.18); background: #fff; }
     textarea { min-height: 72px; resize: vertical; }
     .form-note { font-size: 12px; color: var(--muted); }
-    .hero-card { overflow: hidden; position: relative; min-height: 520px; transition: height 0.25s ease; }
+    /* remove duplicate hero-card definitions */
     .diag-pane {
       position: absolute;
-      inset: 0;
+      top: 32px;
+      left: 0;
+      right: 0;
+      bottom: 0;
       width: 100%;
       opacity: 0;
       pointer-events: none;
       transform: translateX(30px);
       transition: opacity 0.25s ease, transform 0.25s ease;
+      display: none;
+      padding: 0 12px 6px;
     }
     .diag-pane.active {
       opacity: 1;
       pointer-events: auto;
       transform: translateX(0);
       z-index: 1;
+      display: block;
     }
     .ai-results { display: grid; gap: 14px; }
     .ai-card { border: 1px solid #e4ebf3; border-radius: 12px; padding: 14px 16px; background: #f9fbff; }
@@ -422,6 +436,26 @@
       .cta-row .btn { width: 100%; justify-content: center; }
       .contact-details, .card { padding: 18px; }
       .top-bar { font-size: 13px; }
+      .hero-inner { padding: 12px 12px 18px; display: flex; flex-direction: column; }
+      .hero-inner > .hero-card { order: -1; }
+      .hero-card {
+        margin-left: 0;
+        margin-right: 0;
+        padding: 16px 18px 12px;
+        min-height: 360px;
+      }
+      .hero-card h3 { margin: 0 0 32px; }
+      .diag-pane {
+        top: 28px;
+        padding: 0 6px 6px;
+      }
+      .hero-card .field {
+        max-width: 100%;
+      }
+      #diag-run {
+        width: 100% !important;
+        max-width: none !important;
+      }
     }
   </style>
   <script type="application/ld+json">
@@ -542,8 +576,8 @@
                 <span style="white-space:nowrap;">⭐ 4.9 rating (47 reviews)</span>
               </div>
             </div>
-            <div style="display:flex; justify-content:center; margin-top:32px;">
-              <button class="btn primary" id="diag-run" data-track="ai_diagnostic_submit" style="font-size:16px; padding:10px 16px; width:100%;">Get Instant Estimate</button>
+            <div style="display:flex; justify-content:center; margin-top:18px; margin-bottom: 10px;">
+              <button class="btn primary" id="diag-run" data-track="ai_diagnostic_submit" style="font-size:16px; padding:10px 16px; width:90%; max-width: 520px;">Get Instant Estimate</button>
             </div>
             <div class="form-note form-response" aria-live="polite"></div>
           </div>
@@ -958,14 +992,19 @@
         'Other': '$150 - $650'
       };
 
-      function showStep(n) {
-        current = n;
-        panes.forEach(p => p.classList.toggle('active', p.dataset.pane === String(n)));
+      function setCardHeight() {
         const card = document.querySelector('.hero-card');
         const activePane = document.querySelector('.diag-pane.active');
         if (card && activePane) {
-          card.style.height = activePane.offsetHeight + 'px';
+          const h = Math.max(activePane.scrollHeight + 6, 360);
+          card.style.height = h + 'px';
         }
+      }
+
+      function showStep(n) {
+        current = n;
+        panes.forEach(p => p.classList.toggle('active', p.dataset.pane === String(n)));
+        setCardHeight();
       }
 
       function buildResults(service, zip, issue) {
@@ -1011,6 +1050,7 @@
 
       // initialize card height
       showStep(1);
+      window.addEventListener('resize', setCardHeight);
     })();
 
     // Send hero (Instant Estimate) step-3 form to Zapier as well
