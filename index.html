@@ -843,11 +843,13 @@
 
     // Zapier hook for lead capture
     const zapierHook = 'https://hooks.zapier.com/hooks/catch/25608117/ufoj3cu/';
+    const zapierToken = 'plumb-site-secret';
     async function sendLead(payload = {}) {
       try {
+        const fd = new FormData();
         const enriched = {
           ...payload,
-          // Provide Title Case keys for Zapier mappings
+          token: zapierToken,
           Name: payload.name || '',
           Phone: payload.phone || '',
           Email: payload.email || '',
@@ -857,18 +859,11 @@
           Form: payload.form_name || '',
           'Form Name': payload.form_name || ''
         };
-        const body = JSON.stringify(enriched);
-        // Use beacon when possible to avoid CORS/read blocking
-        if (navigator.sendBeacon) {
-          navigator.sendBeacon(zapierHook, new Blob([body], { type: 'application/json' }));
-        } else {
-          await fetch(zapierHook, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/json' },
-            body
-          });
-        }
+        Object.entries(enriched).forEach(([k, v]) => fd.append(k, v || ''));
+        await fetch(zapierHook, {
+          method: 'POST',
+          body: fd
+        });
       } catch (e) {
         console.warn('Zapier hook failed', e);
       }
