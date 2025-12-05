@@ -42,22 +42,22 @@
       font-size: 14px;
     }
 
-    header {
+    .site-header {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 999;
       background: rgba(11, 39, 70, 0.97);
       box-shadow: 0 6px 18px rgba(11, 39, 70, 0.2);
       backdrop-filter: blur(6px);
       overflow: hidden;
     }
-    .nav-bar {
+    .site-header .nav-bar {
       position: relative;
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       padding: 8px 14px;
       gap: 10px;
       color: #fff;
@@ -83,24 +83,24 @@
       filter: brightness(0) invert(1);
       mix-blend-mode: screen;
     }
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-    nav a {
+    .site-header nav { display: none; }
+    .site-header nav a {
       color: #d7e5f7;
       font-weight: 600;
       padding: 6px 10px;
       border-radius: 8px;
       transition: color 0.2s ease, background 0.2s ease;
     }
-    nav a:hover, nav a:focus { color: #fff; background: rgba(255,255,255,0.08); }
+    .site-header nav a:hover, .site-header nav a:focus { color: #fff; background: rgba(255,255,255,0.08); }
 
     .cta-inline {
       display: flex;
       align-items: center;
       gap: 10px;
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
     }
     .btn {
       display: inline-flex;
@@ -257,9 +257,20 @@
     .bullet-style { font-size: 14px; font-weight: 700; color: #eaf3ff; }
     .giveaway-cta { display: flex; gap: 10px; flex-wrap: wrap; }
 
-    .section { max-width: 1140px; margin: 0 auto; padding: 80px 18px; position: relative; }
+    .section { max-width: 1140px; margin: 0 auto; padding: 80px 18px; position: relative; scroll-margin-top: 120px; }
     .section header h2 { margin-bottom: 6px; }
     .section header p { color: var(--muted); max-width: 700px; }
+    .section header.dark {
+      background: rgba(11,39,70,0.9);
+      color: #eaf3ff;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin-top: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.15);
+    }
+    .section header.dark h2 { color: #eaf3ff; }
+    .section header.dark p { color: #cfd8e6; }
 
     .service-banner {
       background: rgba(11,39,70,0.9);
@@ -306,6 +317,27 @@
     .service-card p { color: var(--text); }
     .price { font-weight: 800; color: var(--navy); margin-top: 12px; }
     .small { font-size: 13px; color: var(--muted); }
+
+    .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 18px; }
+    .why-item { padding: 14px 16px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+    .why-item strong { color: var(--navy); display: block; margin-bottom: 6px; }
+
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 16px; margin-top: 18px; }
+    .testimonial { padding: 16px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+    .testimonial .rating { color: #f5a623; font-weight: 800; }
+    .testimonial cite { color: var(--muted); font-style: normal; font-weight: 700; }
+
+    .area-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; margin-top: 12px; }
+    .area-card { padding: 14px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+    .area-card strong { color: var(--navy); }
+    .area-card ul { margin: 8px 0 0; padding-left: 16px; color: var(--muted); }
+
+    .guarantee-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; margin-top: 16px; }
+    .guarantee-card { padding: 14px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+    .guarantee-card strong { color: var(--navy); }
+
+    .cta-banner-final { background: linear-gradient(135deg, #0b2746, #123a67); color: #eaf3ff; padding: 28px 24px; border-radius: 16px; display: grid; gap: 12px; align-items: center; box-shadow: 0 12px 36px rgba(0,0,0,0.12); }
+    .cta-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
     .contact-split {
       display: grid;
@@ -434,7 +466,7 @@
 </head>
 <body>
   <div class="top-bar" style="background: rgba(11, 39, 70, 0.75); color:#fff;">24/7 Emergency Service - Licensed & Insured - Upfront Flat-Rate Pricing</div>
-  <header>
+  <header class="site-header">
     <div class="nav-bar">
       <div class="logo" aria-label="The Plumbing Company">
         <img class="logo-img" src="ChatGPT Image Dec 4, 2025, 10_19_00 AM.png" alt="The Plumbing Company logo">
@@ -498,7 +530,6 @@
             <div style="display:flex; justify-content:center; margin-top:32px;">
               <button class="btn primary" id="diag-run" data-track="ai_diagnostic_submit" style="font-size:16px; padding:10px 16px; width:100%;">Get Instant Estimate</button>
             </div>
-            <div class="form-note form-response" aria-live="polite"></div>
             <div class="form-note form-response" aria-live="polite"></div>
           </div>
 
@@ -593,7 +624,7 @@
     </section>
 
     <section id="schedule" class="section" style="padding-top: 70px;">
-      <header>
+      <header class="dark">
         <h2>Schedule Your Service</h2>
         <p>Tell us what you need and we'll confirm your flat-rate price and arrival window.</p>
       </header>
@@ -650,77 +681,96 @@
     </section>
 
     <section id="why" class="section" style="padding-top: 10px;">
-      <header>
-        <h2>Why Choose The Plumbing Company?</h2>
-        <p>Local, transparent, and focused on making every visit hassle-free for North Texas homeowners.</p>
+      <header class="dark">
+        <h2>Why Homeowners Choose The Plumbing Company</h2>
+        <p>Premium, transparent, and fast—designed for North DFW homeowners.</p>
       </header>
       <div class="why-grid">
-        <div class="why-card reveal">
-          <div class="icon-circle">5/5</div>
-          <h3>5-Star Rated</h3>
-          <p>Homeowners love our punctuality, clean work, and courteous techs.</p>
-        </div>
-        <div class="why-card reveal">
-          <div class="icon-circle">24/7</div>
-          <h3>24/7 Emergency Ready</h3>
-          <p>On-call team when bursts, backups, or no-hot-water emergencies can't wait.</p>
-        </div>
-        <div class="why-card reveal">
-          <div class="icon-circle">$$</div>
-          <h3>Upfront Flat Rates</h3>
-          <p>Know the number before work begins - no surprise add-ons.</p>
-        </div>
-        <div class="why-card reveal">
-          <div class="icon-circle">LIC</div>
-          <h3>Licensed & Insured</h3>
-          <p>State-licensed plumbers who respect your home and protect your peace of mind.</p>
-        </div>
-        <div class="why-card reveal">
-          <div class="icon-circle">FAST</div>
-          <h3>Same-Day Solutions</h3>
-          <p>Dispatch from nearby so we can solve problems the day you call.</p>
-        </div>
-        <div class="why-card reveal">
-          <div class="icon-circle">CLEAN</div>
-          <h3>Clean Home Promise</h3>
-          <p>Shoe covers on, drop cloths down, and tidy clean-up before we leave.</p>
-        </div>
+        <div class="why-item reveal"><strong>Upfront, flat-rate pricing</strong>No surprises—ever.</div>
+        <div class="why-item reveal"><strong>Same-day service across North DFW</strong>Fast dispatch when you need it.</div>
+        <div class="why-item reveal"><strong>Instant AI estimate</strong>Know your price range in 30 seconds.</div>
+        <div class="why-item reveal"><strong>Licensed & insured pros</strong>Safety and code compliance on every job.</div>
+        <div class="why-item reveal"><strong>Transparent communication</strong>We keep you updated before, during, and after.</div>
+        <div class="why-item reveal"><strong>Satisfaction guarantee</strong>We stand behind our work.</div>
       </div>
-      <div class="testimonials">
-        <div class="quote reveal">
-          "They answered on a Sunday, fixed our burst pipe within an hour, and the price was exactly what they quoted."<br><br><strong>- Jane D., Aubrey</strong>
+      <div class="testimonial-grid">
+        <div class="testimonial reveal">
+          <div class="rating">★★★★★</div>
+          <p>“Super fast and honest. The flat-rate pricing made everything stress-free.”</p>
+          <cite>— Sarah M., Little Elm</cite>
         </div>
-        <div class="quote reveal">
-          "Upfront flat rate, no surprises. They left the area cleaner than they found it."<br><br><strong>- Marcus L., Little Elm</strong>
+        <div class="testimonial reveal">
+          <div class="rating">★★★★★</div>
+          <p>“Called at 10pm with a burst pipe. Tech arrived within 90 minutes and fixed it.”</p>
+          <cite>— Michael R., Prosper</cite>
         </div>
-        <div class="quote reveal">
-          "Tech arrived on time, explained every option, and my water heater was running fast."<br><br><strong>- Priya S., Prosper</strong>
+        <div class="testimonial reveal">
+          <div class="rating">★★★★★</div>
+          <p>“They replaced my water heater same-day and the price was exactly as quoted.”</p>
+          <cite>— Jennifer T., Aubrey</cite>
         </div>
       </div>
     </section>
 
     <section class="section" id="service-areas">
-      <header>
+      <header class="dark">
         <h2>Plumbing Service Areas</h2>
         <p>We proudly serve homeowners across North DFW with same-day service and flat-rate pricing.</p>
       </header>
-      <ul class="area-list" style="list-style: disc; padding-left: 18px; color: var(--muted); display: grid; gap: 6px; max-width: 600px;">
-        <li><strong>Little Elm (75036)</strong> — Same-day emergency response</li>
-        <li><strong>Oak Point</strong> — Residential plumbing and leak repair</li>
-        <li><strong>Aubrey</strong> — Water heater specialists</li>
-        <li><strong>Prosper</strong> — 24/7 emergency plumbing</li>
-      </ul>
+      <div class="area-columns">
+        <div class="area-card reveal">
+          <strong>Little Elm (75036)</strong>
+          <ul>
+            <li>Same-day scheduling</li>
+            <li>Water heater & leak specialists</li>
+          </ul>
+        </div>
+        <div class="area-card reveal">
+          <strong>Oak Point (75068)</strong>
+          <ul>
+            <li>Residential plumbing & repairs</li>
+            <li>Upfront flat-rate pricing</li>
+          </ul>
+        </div>
+        <div class="area-card reveal">
+          <strong>Aubrey (76227)</strong>
+          <ul>
+            <li>Water heater installs & emergency response</li>
+            <li>Drain and sewer specialists</li>
+          </ul>
+        </div>
+        <div class="area-card reveal">
+          <strong>Prosper (75078)</strong>
+          <ul>
+            <li>Full-service plumbing</li>
+            <li>24/7 emergency coverage</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guarantees">
+      <header class="dark">
+        <h2>Our Guarantees</h2>
+        <p>Confidence before we arrive. Protection after the job is done.</p>
+      </header>
+      <div class="why-grid">
+        <div class="why-item reveal"><strong>Workmanship Guarantee</strong>Done right the first time, backed by our clean-home promise.</div>
+        <div class="why-item reveal"><strong>Upfront Flat-Rate Pricing</strong>You know the price before we start—no surprise add-ons.</div>
+        <div class="why-item reveal"><strong>Fast Response Times</strong>Same-day service available across North DFW, including emergencies.</div>
+        <div class="why-item reveal"><strong>Licensed & Insured</strong>Texas licensed pros who protect your home and meet code.</div>
+      </div>
     </section>
 
     <section class="section" id="faq">
-      <header>
+      <header class="dark">
         <h2>Frequently Asked Questions</h2>
         <p>Quick answers for Little Elm and nearby homeowners.</p>
       </header>
       <div class="faq-list" style="display:grid; gap:12px; max-width:800px;">
         <div class="faq-item">
           <h3>What is your emergency response time in Little Elm?</h3>
-          <p>We prioritize emergencies with arrival typically within 2–4 hours, and 1–2 hours for burst pipes or major leaks in 76227.</p>
+          <p>We prioritize emergencies with arrival typically within 2–4 hours, and 1–2 hours for burst pipes or major leaks in 75036.</p>
         </div>
         <div class="faq-item">
           <h3>Do you offer upfront flat-rate pricing?</h3>
@@ -736,7 +786,21 @@
         </div>
         <div class="faq-item">
           <h3>Which areas do you serve?</h3>
-          <p>Little Elm (76227), Oak Point, Aubrey, Prosper, and nearby North DFW communities.</p>
+          <p>Little Elm (75036), Oak Point, Aubrey, Prosper, and nearby North DFW communities.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding: 70px 18px 90px; background: #0b2746; color: #fff; margin-top: 30px; border-radius: 0;">
+      <div class="hero-inner" style="grid-template-columns: 1.1fr 0.9fr; align-items: center; padding: 0; gap: 24px;">
+        <div>
+          <div class="eyebrow" style="color:#9cc7ff; margin-bottom:6px;">Ready when you are</div>
+          <h2 style="color:#fff; margin-bottom:10px;">Need plumbing help today?</h2>
+          <p class="subhead" style="color:#e0edff; max-width:620px; margin:0;">Get an instant estimate in 30 seconds, or call us for same-day service across North DFW.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="#hero" style="width:100%; max-width:260px; justify-content:center;">Get Instant Estimate</a>
+          <a class="btn outline" href="tel:9725550136" style="border-color:rgba(255,255,255,0.5); color:#fff;">Call Now: 972-555-0136</a>
         </div>
       </div>
     </section>
@@ -992,7 +1056,7 @@
             "name": "What is your emergency response time in Little Elm?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We prioritize emergencies with arrival typically within 2–4 hours, and 1–2 hours for burst pipes or major leaks in 76227."
+              "text": "We prioritize emergencies with arrival typically within 2–4 hours, and 1–2 hours for burst pipes or major leaks in 75036."
             }
           },
           {
@@ -1024,7 +1088,7 @@
             "name": "Which areas do you serve?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Little Elm (76227), Oak Point, Aubrey, Prosper, and nearby North DFW communities."
+              "text": "Little Elm (75036), Oak Point, Aubrey, Prosper, and nearby North DFW communities."
             }
           }
         ]
