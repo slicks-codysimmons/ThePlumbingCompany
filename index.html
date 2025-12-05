@@ -841,6 +841,20 @@
       document.body.classList.toggle('nav-open');
     });
 
+    // Zapier hook for lead capture
+    const zapierHook = 'https://hooks.zapier.com/hooks/catch/25608117/ufoj3cu/';
+    async function sendLead(payload = {}) {
+      try {
+        await fetch(zapierHook, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+      } catch (e) {
+        console.warn('Zapier hook failed', e);
+      }
+    }
+
     const bindForm = (id, handler) => {
       const form = document.getElementById(id);
       if (!form) return;
@@ -853,6 +867,13 @@
           response.textContent = "Thank you! We'll call you shortly to confirm details.";
           setTimeout(() => { response.textContent = ''; }, 6000);
         }
+        // Send to Zapier
+        const name = form.querySelector('[name="name"]')?.value || '';
+        const phone = form.querySelector('[name="phone"]')?.value || '';
+        const email = form.querySelector('[name="email"]')?.value || '';
+        const issue = form.querySelector('[name="message"]')?.value || form.querySelector('textarea')?.value || '';
+        const formName = form.id === 'contactForm' ? 'Online Request' : (form.id || 'Web Form');
+        sendLead({ name, phone, email, issue, form_name: formName });
         form.reset();
       });
     };
@@ -944,6 +965,19 @@
       if (back2) back2.addEventListener('click', () => showStep(2));
 
       showStep(1);
+    })();
+
+    // Send hero (Instant Estimate) step-3 form to Zapier as well
+    (function() {
+      const heroForm = document.getElementById('heroForm');
+      if (!heroForm) return;
+      heroForm.addEventListener('submit', () => {
+        const name = document.getElementById('hero-name')?.value || '';
+        const phone = document.getElementById('hero-phone')?.value || '';
+        const email = document.getElementById('hero-email')?.value || '';
+        const issue = document.getElementById('hero-issue')?.value || '';
+        sendLead({ name, phone, email, issue, form_name: 'Instant Estimate' });
+      });
     })();
 
     const observer = new IntersectionObserver(entries => {
