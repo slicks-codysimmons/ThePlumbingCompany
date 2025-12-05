@@ -852,6 +852,9 @@
           Phone: payload.phone || '',
           Email: payload.email || '',
           Issue: payload.issue || '',
+          Service: payload.service || '',
+          Message: payload.issue || payload.message || '',
+          Form: payload.form_name || '',
           'Form Name': payload.form_name || ''
         };
         await fetch(zapierHook, {
@@ -880,9 +883,13 @@
         const name = form.querySelector('[name="name"]')?.value || '';
         const phone = form.querySelector('[name="phone"]')?.value || '';
         const email = form.querySelector('[name="email"]')?.value || '';
-        const issue = form.querySelector('[name="message"]')?.value || form.querySelector('textarea')?.value || '';
+        const issue = form.querySelector('[name="issue"]')?.value
+          || form.querySelector('[name="message"]')?.value
+          || form.querySelector('textarea')?.value
+          || '';
+        const service = form.querySelector('[name="service"]')?.value || '';
         const formName = form.id === 'contactForm' ? 'Online Request' : (form.id || 'Web Form');
-        sendLead({ name, phone, email, issue, form_name: formName });
+        sendLead({ name, phone, email, issue, service, form_name: formName });
         form.reset();
       });
     };
@@ -980,12 +987,19 @@
     (function() {
       const heroForm = document.getElementById('heroForm');
       if (!heroForm) return;
-      heroForm.addEventListener('submit', () => {
+      heroForm.addEventListener('submit', (e) => {
+        e.preventDefault();
         const name = document.getElementById('hero-name')?.value || '';
         const phone = document.getElementById('hero-phone')?.value || '';
         const email = document.getElementById('hero-email')?.value || '';
         const issue = document.getElementById('hero-issue')?.value || '';
         sendLead({ name, phone, email, issue, form_name: 'Instant Estimate' });
+        const resp = heroForm.querySelector('.form-response');
+        if (resp) {
+          resp.textContent = "Thank you! We'll reach out shortly.";
+          setTimeout(() => { resp.textContent = ''; }, 6000);
+        }
+        heroForm.reset();
       });
     })();
 
