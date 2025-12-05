@@ -845,10 +845,19 @@
     const zapierHook = 'https://hooks.zapier.com/hooks/catch/25608117/ufoj3cu/';
     async function sendLead(payload = {}) {
       try {
+        const enriched = {
+          ...payload,
+          // Provide Title Case keys for Zapier mappings
+          Name: payload.name || '',
+          Phone: payload.phone || '',
+          Email: payload.email || '',
+          Issue: payload.issue || '',
+          'Form Name': payload.form_name || ''
+        };
         await fetch(zapierHook, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
+          body: JSON.stringify(enriched)
         });
       } catch (e) {
         console.warn('Zapier hook failed', e);
