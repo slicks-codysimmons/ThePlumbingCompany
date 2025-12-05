@@ -229,13 +229,10 @@
       transition: border 0.2s ease, box-shadow 0.2s ease;
     }
     textarea::placeholder {
-      transition: opacity 0.25s ease;
+      transition: opacity 0.5s ease;
       opacity: 0.55;
       color: #8a8f99;
       font-size: 14px;
-    }
-    #hero-issue {
-      transition: opacity 0.4s ease, filter 0.4s ease;
     }
     input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,122,26,0.18); background: #fff; }
     textarea { min-height: 72px; resize: vertical; }
@@ -444,7 +441,7 @@
       .mobile-toggle { display: none; }
       /* replace header CTA with compact phone icon */
       .cta-inline { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); }
-      .cta-inline .btn { padding: 10px 12px; border-radius: 10px; min-width: auto; width: 44px; height: 44px; justify-content: center; }
+      .cta-inline .btn { padding: 10px 12px; border-radius: 10px; min-width: auto; width: 44px; height: 44px; justify-content: center; font-size: 0; }
       .cta-inline .btn::before { content: '📞'; font-size: 18px; }
       .cta-inline .btn span { display: none; }
       /* widen the card on mobile */
