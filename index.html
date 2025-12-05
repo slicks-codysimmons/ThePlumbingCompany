@@ -439,15 +439,18 @@
       .hero-inner { padding: 12px 12px 18px; display: flex; flex-direction: column; }
       .hero-inner > .hero-card { order: -1; }
       .mobile-toggle { display: none; }
-      .cta-inline { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); }
+      /* replace header CTA with compact phone icon */
+      .cta-inline { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); }
       .cta-inline .btn { padding: 10px 12px; border-radius: 10px; min-width: auto; width: 44px; height: 44px; justify-content: center; }
       .cta-inline .btn::before { content: '📞'; font-size: 18px; }
       .cta-inline .btn span { display: none; }
+      /* widen the card on mobile */
       .hero-card {
-        margin-left: -14px;
-        margin-right: -14px;
+        margin-left: -16px;
+        margin-right: -16px;
         padding: 18px 20px 14px;
-        min-height: 360px;
+        min-height: 380px;
+        max-width: none;
       }
       .hero-card h3 { margin: 0 0 32px; }
       .diag-pane {
