@@ -972,6 +972,14 @@
           const zip = document.getElementById('hero-zip')?.value || '';
           const issue = document.getElementById('hero-issue')?.value || '';
           buildResults(service, zip, issue);
+          sendLead({
+            name: '',
+            phone: '',
+            email: '',
+            issue,
+            service,
+            form_name: 'Instant Estimate'
+          });
           showStep(2);
         });
       }
@@ -995,7 +1003,9 @@
         const phone = document.getElementById('hero-phone')?.value || '';
         const email = document.getElementById('hero-email')?.value || '';
         const issue = document.getElementById('hero-issue')?.value || '';
-        sendLead({ name, phone, email, issue, form_name: 'Instant Estimate' });
+        const service = document.getElementById('hero-service')?.value || 'Other';
+        const zip = document.getElementById('hero-zip')?.value || '';
+        sendLead({ name, phone, email, issue, service, zip, form_name: 'Instant Estimate' });
         const resp = heroForm.querySelector('.form-response');
         if (resp) {
           resp.textContent = "Thank you! We'll reach out shortly.";
