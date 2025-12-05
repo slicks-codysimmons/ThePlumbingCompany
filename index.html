@@ -229,8 +229,22 @@
     input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,122,26,0.18); background: #fff; }
     textarea { min-height: 72px; resize: vertical; }
     .form-note { font-size: 12px; color: var(--muted); }
-    .diag-pane { display: none; }
-    .diag-pane.active { display: block; }
+    .hero-card { overflow: hidden; position: relative; min-height: 520px; transition: height 0.25s ease; }
+    .diag-pane {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(30px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .diag-pane.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+      z-index: 1;
+    }
     .ai-results { display: grid; gap: 14px; }
     .ai-card { border: 1px solid #e4ebf3; border-radius: 12px; padding: 14px 16px; background: #f9fbff; }
     .ai-card strong { color: var(--navy); }
@@ -947,6 +961,11 @@
       function showStep(n) {
         current = n;
         panes.forEach(p => p.classList.toggle('active', p.dataset.pane === String(n)));
+        const card = document.querySelector('.hero-card');
+        const activePane = document.querySelector('.diag-pane.active');
+        if (card && activePane) {
+          card.style.height = activePane.offsetHeight + 'px';
+        }
       }
 
       function buildResults(service, zip, issue) {
@@ -990,6 +1009,7 @@
       if (back1) back1.addEventListener('click', () => showStep(1));
       if (back2) back2.addEventListener('click', () => showStep(2));
 
+      // initialize card height
       showStep(1);
     })();
 
