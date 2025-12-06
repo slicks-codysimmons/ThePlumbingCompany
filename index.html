@@ -439,11 +439,8 @@
       .hero-inner { padding: 12px 12px 18px; display: flex; flex-direction: column; }
       .hero-inner > .hero-card { order: -1; }
       .mobile-toggle { display: none; }
-      /* replace header CTA with compact phone icon */
-      .cta-inline { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); }
-      .cta-inline .btn { padding: 10px 12px; border-radius: 10px; min-width: auto; width: 44px; height: 44px; justify-content: center; font-size: 0; }
-      .cta-inline .btn::before { content: '📞'; font-size: 18px; }
-      .cta-inline .btn span { display: none; }
+      /* hide header CTA on mobile; footer bar will handle call action */
+      .cta-inline { display: none; }
       /* widen the card on mobile */
       .hero-card {
         margin-left: 0;
@@ -871,33 +868,52 @@
         <div class="footer-note">Serving Little Elm, Oak Point, Aubrey, Prosper and nearby communities.</div>
       </div>
       <div>
-        <div class="footer-heading">Contact</div>
-        <div class="footer-note">Phone: <a href="tel:9403053083"><span aria-hidden="true">📞</span> (940) 305-3083</a></div>
-        <div class="footer-note">Email: <a href="mailto:support@theplumbingcompany-tx.com">support@theplumbingcompany-tx.com</a></div>
-        <div class="footer-note">Hours: Mon-Sat 7a-7p - 24/7 emergencies</div>
-      </div>
-      <div>
-        <div class="footer-heading">Links</div>
+      <div class="footer-heading">Contact</div>
+      <div class="footer-note">Phone: <a href="tel:9403053083"><span aria-hidden="true">📞</span> (940) 305-3083</a></div>
+      <div class="footer-note">Email: <a href="mailto:support@theplumbingcompany-tx.com">support@theplumbingcompany-tx.com</a></div>
+      <div class="footer-note">Hours: Mon-Sat 7a-7p - 24/7 emergencies</div>
+    </div>
+    <div>
+      <div class="footer-heading">Links</div>
         <div class="footer-note"><a href="#services">Services</a></div>
         <div class="footer-note"><a href="#schedule">Schedule</a></div>
         <div class="footer-note"><a href="#why">Why Us</a></div>
         <div class="footer-note"><a href="#contact">Contact</a></div>
-      </div>
-      <div>
-        <div class="footer-heading">Peace of Mind</div>
-        <div class="footer-note">Licensed - Insured - Upfront Pricing</div>
-        <div class="footer-note">Clean Home Promise</div>
-        <div class="footer-note">Fast local dispatch</div>
-      </div>
     </div>
-    <div class="footer-note" style="text-align:center; margin-top:22px;">(c) 2025 The Plumbing Company. All rights reserved.</div>
-  </footer>
+    <div>
+      <div class="footer-heading">Peace of Mind</div>
+      <div class="footer-note">Licensed - Insured - Upfront Pricing</div>
+      <div class="footer-note">Clean Home Promise</div>
+      <div class="footer-note">Fast local dispatch</div>
+    </div>
+  </div>
+  <div class="footer-note" style="text-align:center; margin-top:22px;">(c) 2025 The Plumbing Company. All rights reserved.</div>
+</footer>
+
+  <!-- Mobile sticky footer call bar -->
+  <div class="mobile-call-bar" style="position:fixed; bottom:0; left:0; right:0; padding:10px 14px; background:#0b2746; display:none; z-index:1200; border-top:1px solid rgba(255,255,255,0.12);">
+    <a href="tel:9403053083" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#ff7a1a; color:#fff; font-weight:700; text-decoration:none; padding:12px 16px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.2); font-size:16px;">
+      <span aria-hidden="true">📞</span> Call Us Now
+    </a>
+  </div>
 
   <script>
     const toggle = document.querySelector('.mobile-toggle');
     toggle.addEventListener('click', () => {
       document.body.classList.toggle('nav-open');
     });
+
+    // Show mobile call bar on small screens
+    (function() {
+      const bar = document.querySelector('.mobile-call-bar');
+      const mq = window.matchMedia('(max-width: 600px)');
+      function toggleBar(e) {
+        if (!bar) return;
+        bar.style.display = e.matches ? 'block' : 'none';
+      }
+      toggleBar(mq);
+      mq.addEventListener('change', toggleBar);
+    })();
 
     // Zapier hook for lead capture
     const zapierHook = 'https://hooks.zapier.com/hooks/catch/25608117/ufoj3cu/';
