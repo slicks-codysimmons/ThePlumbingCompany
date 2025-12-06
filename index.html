@@ -305,6 +305,7 @@
     .giveaway-left { display: grid; gap: 6px; }
     .giveaway-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: #ffcba4; font-weight: 800; margin: 0 0 3px 4px; line-height: 1.25; }
     .giveaway-note { margin: 0 0 4px 4px; font-weight: 600; color: #eaf3ff; font-size: 12px; line-height: 1.35; }
+    .giveaway-note.mobile-only { display: none; }
     .giveaway-list { margin: 6px 0 0; padding-left: 24px; color: #d7e5f7; }
     .giveaway-list li { list-style: disc; margin-bottom: 3px; font-size: 12px; font-weight: 600; }
     .giveaway-list li:last-child { margin-bottom: 0; }
@@ -500,6 +501,7 @@
       .giveaway-tracker .tracker-label { font-size: 10px; }
       .giveaway-tracker .tracker-count { font-size: 20px; }
       .giveaway-inner { grid-template-columns: 1fr auto; }
+      .giveaway-note.mobile-only { display: block; margin: 2px 0 0; font-size: 11px; color: #eaf3ff; }
       .hero-card .field {
         max-width: 92%;
         margin-top: 8px;
@@ -595,6 +597,7 @@
             <div class="giveaway-left">
               <div class="giveaway-label" style="text-shadow: 0 0 10px rgba(255,255,255,0.4);">Win Our Grand Prize Giveaway</div>
               <div class="giveaway-note">Every service = automatic entries</div>
+              <div class="giveaway-note mobile-only">Every service = automatic entries</div>
               <ul class="giveaway-list">
                 <li class="bullet-style">2× BONUS ENTRIES until March 31</li>
                 <li class="bullet-style">Prize Reveal: April 1</li>
