@@ -238,6 +238,23 @@
       font-size: 14px;
     }
     input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,122,26,0.18); background: #fff; }
+    input[type="file"]::file-selector-button {
+      background: linear-gradient(180deg, rgba(15,60,104,0.5) 0%, rgba(11,39,70,0.5) 100%);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 6px 10px;
+      margin-right: 8px;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.15s ease, background 0.2s ease;
+    }
+    input[type="file"]::file-selector-button:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(180deg, rgba(21,70,124,0.6) 0%, rgba(12,48,83,0.6) 100%);
+    }
     textarea { min-height: 72px; resize: vertical; }
     .form-note { font-size: 12px; color: var(--muted); }
     /* remove duplicate hero-card definitions */
@@ -267,7 +284,7 @@
     .giveaway-wrap { width: 100%; margin: 0 auto 14px; padding: 0; }
     .giveaway-card {
       margin: 0;
-      padding: 14px 32px;
+      padding: 10px 24px;
       border: none;
       border-radius: 0;
       background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(11,39,70,0.35));
@@ -276,7 +293,16 @@
       display: block;
       width: 100%;
     }
-    .giveaway-inner { max-width: 1140px; margin: 0 auto; }
+    .giveaway-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .giveaway-left { display: grid; gap: 6px; }
     .giveaway-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: #ffcba4; font-weight: 800; margin: 0 0 3px 4px; line-height: 1.25; }
     .giveaway-note { margin: 0 0 4px 4px; font-weight: 600; color: #eaf3ff; font-size: 12px; line-height: 1.35; }
     .giveaway-list { margin: 6px 0 0; padding-left: 24px; color: #d7e5f7; }
@@ -284,6 +310,18 @@
     .giveaway-list li:last-child { margin-bottom: 0; }
     .bullet-style { font-size: 14px; font-weight: 700; color: #eaf3ff; }
     .giveaway-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .giveaway-tracker {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 8px 12px;
+      color: #eaf3ff;
+      min-width: 180px;
+      text-align: right;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+    .giveaway-tracker .tracker-label { font-size: 11px; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.8; font-weight: 700; }
+    .giveaway-tracker .tracker-count { font-size: 24px; font-weight: 800; margin: 0 0 4px; color: #fff; }
 
     .section { max-width: 1140px; margin: 0 auto; padding: 80px 18px; position: relative; scroll-margin-top: 120px; }
     .section header h2 { margin-bottom: 6px; }
@@ -546,13 +584,20 @@
       <div class="giveaway-wrap">
         <div class="giveaway-card">
           <div class="giveaway-inner">
-            <div class="giveaway-label" style="text-shadow: 0 0 10px rgba(255,255,255,0.4);">Win Our Grand Prize Giveaway</div>
-            <div class="giveaway-note">Every service = automatic entries • 2× BONUS ENTRIES until March 31!</div>
-            <ul class="giveaway-list">
-              <li class="bullet-style">Prize Reveal: April 1</li>
-              <li class="bullet-style">Winner Drawn: Christmas Eve</li>
-            </ul>
-            <a class="btn" href="#why" style="border: none; background: transparent; padding: 10px 8px 4px; font-size: 11px; color:#eaf3ff; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">See Details →</a>
+            <div class="giveaway-left">
+              <div class="giveaway-label" style="text-shadow: 0 0 10px rgba(255,255,255,0.4);">Win Our Grand Prize Giveaway</div>
+              <div class="giveaway-note">Every service = automatic entries</div>
+              <ul class="giveaway-list">
+                <li class="bullet-style">2× BONUS ENTRIES until March 31</li>
+                <li class="bullet-style">Prize Reveal: April 1</li>
+                <li class="bullet-style">Winner Drawn: Christmas Eve</li>
+              </ul>
+            </div>
+            <div class="giveaway-tracker" aria-label="Giveaway entry tracker">
+              <div class="tracker-label">Your entries</div>
+              <div class="tracker-count">1,248</div>
+              <a class="btn" href="#why" style="border: none; background: transparent; padding: 8px 0 2px; font-size: 11px; color:#eaf3ff; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">See Details →</a>
+            </div>
           </div>
         </div>
       </div>
@@ -891,8 +936,8 @@
 </footer>
 
   <!-- Mobile sticky footer call bar -->
-  <div class="mobile-call-bar" style="position:fixed; bottom:0; left:0; right:0; padding:10px 14px; background:#0b2746; display:none; z-index:1200; border-top:1px solid rgba(255,255,255,0.12); opacity:0.75;">
-    <a href="tel:9403053083" style="display:flex; align-items:center; justify-content:center; gap:10px; background:rgba(11,39,70,0.75); color:#fff; font-weight:700; text-decoration:none; padding:12px 16px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.2); font-size:16px;">
+  <div class="mobile-call-bar" style="position:fixed; bottom:0; left:0; right:0; padding:10px 14px; background:#0b2746; display:none; z-index:1200; border-top:1px solid rgba(255,255,255,0.12); opacity:1;">
+    <a href="tel:9403053083" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#0b2746; color:#fff; font-weight:700; text-decoration:none; padding:12px 16px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.2); font-size:16px;">
       <span aria-hidden="true">📞</span> Call Us Now
     </a>
   </div>
