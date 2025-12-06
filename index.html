@@ -155,6 +155,7 @@
       background: url('https://images.unsplash.com/photo-1582719478145-3f7d3f4c8dfe?auto=format&fit=crop&w=1600&q=80') center/cover;
       opacity: 0.16;
       mix-blend-mode: screen;
+      pointer-events: none;
     }
     .hero-inner {
       position: relative;
@@ -292,6 +293,8 @@
       box-shadow: inset 0 -1px 0 rgba(255,255,255,0.06);
       display: block;
       width: 100%;
+      text-decoration: none;
+      cursor: pointer;
     }
     .giveaway-inner {
       max-width: 1140px;
@@ -311,18 +314,6 @@
     .giveaway-list li:last-child { margin-bottom: 0; }
     .bullet-style { font-size: 14px; font-weight: 700; color: #eaf3ff; }
     .giveaway-cta { display: flex; gap: 10px; flex-wrap: wrap; }
-    .giveaway-tracker {
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 12px;
-      padding: 6px 10px;
-      color: #eaf3ff;
-      min-width: 160px;
-      text-align: right;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    }
-    .giveaway-tracker .tracker-label { font-size: 10px; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.8; font-weight: 700; }
-    .giveaway-tracker .tracker-count { font-size: 22px; font-weight: 800; margin: 0 0 4px; color: #fff; }
 
     .section { max-width: 1140px; margin: 0 auto; padding: 80px 18px; position: relative; scroll-margin-top: 120px; }
     .section header h2 { margin-bottom: 6px; }
@@ -493,13 +484,6 @@
       .diag-pane { padding: 0 6px 10px; }
       .giveaway-note,
       .giveaway-list { display: none; }
-      .giveaway-tracker {
-        min-width: 120px;
-        padding: 4px 8px;
-        text-align: right;
-      }
-      .giveaway-tracker .tracker-label { font-size: 9px; }
-      .giveaway-tracker .tracker-count { font-size: 18px; }
       .giveaway-inner { grid-template-columns: 1fr auto; }
       .giveaway-note.mobile-only { display: block; margin: 2px 0 0; font-size: 11px; color: #eaf3ff; }
       .hero-card .field {
@@ -583,7 +567,7 @@
         <a href="#contact">Contact</a>
       </nav>
       <div class="cta-inline">
-        <a class="btn outline" href="tel:9403053083"><span aria-hidden="true">📞</span> (940) 305-3083</a>
+        <a class="btn outline" href="tel:9403053083"><span aria-hidden="true">📞</span> Call Now</a>
         <button class="mobile-toggle" aria-label="Toggle menu">Menu</button>
       </div>
     </div>
@@ -592,7 +576,7 @@
   <main>
     <section id="hero" class="hero">
       <div class="giveaway-wrap">
-        <div class="giveaway-card">
+        <a class="giveaway-card" href="giveaway-details.html" aria-label="See giveaway details">
           <div class="giveaway-inner">
             <div class="giveaway-left">
               <div class="giveaway-label" style="text-shadow: 0 0 10px rgba(255,255,255,0.4);">Win Our Grand Prize Giveaway</div>
@@ -603,14 +587,13 @@
                 <li class="bullet-style">Prize Reveal: April 1</li>
                 <li class="bullet-style">Winner Drawn: Christmas Eve</li>
               </ul>
+              <div style="text-align:left; font-size:7px; color:#6f88ad; margin: 9px 0 0;">
+                No purchase necessary. Void where prohibited. See official rules.
+              </div>
             </div>
-            <div class="giveaway-tracker" aria-label="Giveaway entry tracker">
-              <div class="tracker-label">Your entries</div>
-              <div class="tracker-count">1,248</div>
-              <a class="btn" href="#why" style="border: none; background: transparent; padding: 8px 0 2px; font-size: 11px; color:#eaf3ff; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">See Details →</a>
-            </div>
+            <span aria-hidden="true" style="font-weight:700; font-size:11px; color:#eaf3ff; display:inline-flex; align-items:center; gap:6px; justify-self:end;">See Details →</span>
           </div>
-        </div>
+        </a>
       </div>
       <div class="hero-inner" style="align-items:start;">
         <div class="hero-copy reveal">
@@ -741,7 +724,7 @@
           <div class="contact-row"><strong>Area:</strong> Little Elm - Oak Point - Aubrey - Prosper</div>
           <div class="contact-row"><strong>Availability:</strong> Same-day appointments available</div>
           <p class="form-note" style="margin-top:10px;">Flat-rate pricing available on most jobs. No surprise add-ons ever.</p>
-          <a class="btn primary" href="tel:9403053083" style="margin-top:14px;">Call Now</a>
+          <a class="btn primary" href="tel:9403053083" style="margin-top:14px;"><span aria-hidden="true">📞</span> Call Now</a>
         </div>
         <div id="contact" class="card reveal">
           <h3>Online Request</h3>
@@ -909,7 +892,7 @@
         <p style="margin: 0 0 18px; color: var(--muted);">Get your flat-rate estimate instantly or call our team now.</p>
         <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
           <a class="btn primary" href="#hero" style="min-width:200px; justify-content:center;">Get Instant Estimate</a>
-          <a class="btn outline" href="tel:9403053083" style="min-width:200px; justify-content:center; border-color: var(--navy); color: var(--navy);">(940) 305-3083</a>
+          <a class="btn outline" href="tel:9403053083" style="min-width:200px; justify-content:center; border-color: var(--navy); color: var(--navy);"><span aria-hidden="true">📞</span> Call Now</a>
         </div>
       </div>
     </section>
@@ -925,7 +908,7 @@
       </div>
       <div>
       <div class="footer-heading">Contact</div>
-      <div class="footer-note">Phone: <a href="tel:9403053083"><span aria-hidden="true">📞</span> (940) 305-3083</a></div>
+      <div class="footer-note">Phone: <a href="tel:9403053083"><span aria-hidden="true">📞</span> Call Now</a></div>
       <div class="footer-note">Email: <a href="mailto:support@theplumbingcompany-tx.com">support@theplumbingcompany-tx.com</a></div>
       <div class="footer-note">Hours: Mon-Sat 7a-7p - 24/7 emergencies</div>
     </div>
@@ -944,6 +927,9 @@
     </div>
   </div>
   <div class="footer-note" style="text-align:center; margin-top:22px;">(c) 2025 The Plumbing Company. All rights reserved.</div>
+  <div class="footer-note" style="margin-top:10px; font-size:10px; line-height:1.5; color:#7f93b0; text-align:center;">
+    * NO PURCHASE NECESSARY TO ENTER OR WIN. A PURCHASE WILL NOT INCREASE YOUR CHANCES OF WINNING. Open to legal residents of the 50 United States, the District of Columbia and Canada. Void in Puerto Rico and US territories and where prohibited by law. Must be age of majority in state/province of residence and licensed driver as of 11/06/2025 MST. Promotion ends 1:00 PM CST on 12/15/2026. Skill-testing question required if a Canadian resident is selected as potential winner. Maximum value of Grand Prize is $202,000 USD. Odds of winning depend upon the number of eligible purchase and non-purchase entries received. See Official Rules for details including how to enter without making a purchase.
+  </div>
 </footer>
 
   <!-- Mobile sticky footer call bar -->
