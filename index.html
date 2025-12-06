@@ -199,15 +199,18 @@
     .hero-card {
       position: relative;
       margin-top: 24px;
-      padding: 18px 24px 14px;
+      padding: 10px 24px 12px;
       align-self: flex-start;
       margin-left: 24px;
       min-height: 380px;
       transition: height 0.2s ease;
       overflow: hidden;
+      display: grid;
+      align-content: start;
     }
-    .hero-card h3 { margin: 0 0 40px; font-size: 24px; }
-    .diag-pane .field:first-of-type { margin-top: 28px; }
+    .hero-card h3 { margin: 16px 0 14px; font-size: 24px; }
+    .hero-card h3 + .diag-pane { margin-top: 0; }
+    .diag-pane .field:first-of-type { margin-top: 6px; }
     .contact-form { display: grid; gap: 18px; }
     .hero-card .field {
       display: grid;
@@ -239,23 +242,19 @@
     .form-note { font-size: 12px; color: var(--muted); }
     /* remove duplicate hero-card definitions */
     .diag-pane {
-      position: absolute;
-      top: 32px;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      position: relative;
       width: 100%;
       opacity: 0;
       pointer-events: none;
-      transform: translateX(30px);
+      transform: translateY(10px);
       transition: opacity 0.25s ease, transform 0.25s ease;
       display: none;
-      padding: 0 12px 6px;
+      padding: 4px 12px 4px;
     }
     .diag-pane.active {
       opacity: 1;
       pointer-events: auto;
-      transform: translateX(0);
+      transform: translateY(0);
       z-index: 1;
       display: block;
     }
@@ -445,23 +444,22 @@
       .hero-card {
         margin-left: 0;
         margin-right: 0;
-        padding: 18px 20px 14px;
-        min-height: 380px;
-        max-width: 92vw;
+        padding: 12px 20px 14px;
+        min-height: 400px;
+        max-width: 96vw;
         align-self: center;
         width: 100%;
       }
-      .hero-card h3 { margin: 0 0 34px; }
-      .diag-pane {
-        top: 32px;
-        padding: 0 6px 8px;
-      }
+      .hero-card h3 { margin: 16px 0 14px; }
+      .diag-pane { padding: 0 6px 10px; }
       .hero-card .field {
         max-width: 92%;
+        margin-top: 8px;
       }
       #diag-run {
         width: 92% !important;
         max-width: none !important;
+        margin-top: 12px;
       }
     }
   </style>
@@ -891,8 +889,8 @@
 </footer>
 
   <!-- Mobile sticky footer call bar -->
-  <div class="mobile-call-bar" style="position:fixed; bottom:0; left:0; right:0; padding:10px 14px; background:#0b2746; display:none; z-index:1200; border-top:1px solid rgba(255,255,255,0.12);">
-    <a href="tel:9403053083" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#3b82f6; color:#fff; font-weight:700; text-decoration:none; padding:12px 16px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.2); font-size:16px;">
+  <div class="mobile-call-bar" style="position:fixed; bottom:0; left:0; right:0; padding:10px 14px; background:#0b2746; display:none; z-index:1200; border-top:1px solid rgba(255,255,255,0.12); opacity:0.75;">
+    <a href="tel:9403053083" style="display:flex; align-items:center; justify-content:center; gap:10px; background:rgba(11,39,70,0.75); color:#fff; font-weight:700; text-decoration:none; padding:12px 16px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.2); font-size:16px;">
       <span aria-hidden="true">📞</span> Call Us Now
     </a>
   </div>
@@ -1019,7 +1017,10 @@
         const card = document.querySelector('.hero-card');
         const activePane = document.querySelector('.diag-pane.active');
         if (card && activePane) {
-          const h = Math.max(activePane.scrollHeight + 6, 360);
+          const heading = card.querySelector('h3');
+          const headingHeight = heading ? heading.offsetHeight : 0;
+          const gapAllowance = 24; // account for flex gap + padding
+          const h = Math.max(activePane.scrollHeight + headingHeight + gapAllowance, 360);
           card.style.height = h + 'px';
         }
       }
