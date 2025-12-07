@@ -380,10 +380,8 @@
     .why-item { padding: 14px 16px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
     .why-item strong { color: var(--navy); display: block; margin-bottom: 6px; }
 
-    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 16px; margin-top: 18px; }
-    .testimonial { padding: 16px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
-    .testimonial .rating { color: #f5a623; font-weight: 800; }
-    .testimonial cite { color: var(--muted); font-style: normal; font-weight: 700; }
+    .testimonial-grid { display: none; }
+    .testimonial { display: none; }
 
     .area-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; margin-top: 12px; }
     .area-card { padding: 14px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
@@ -533,20 +531,13 @@
       "closes": "23:59"
     },
     "priceRange": "$$",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "47",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Plumbing Services",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Water Heater Repair", "description": "Same-day water heater repair and replacement services" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drain Cleaning", "description": "Professional drain cleaning and clearing services" } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Plumbing", "description": "24/7 emergency plumbing services" } }
+        
       ]
     }
   }
@@ -600,7 +591,7 @@
           <div class="form-note" style="color:#d7e5f7; font-weight:700; margin-bottom:4px;">Trusted by homeowners across North DFW</div>
           <div class="eyebrow">Proudly serving Little Elm, Oak Point, Aubrey & Prosper</div>
           <h1>Fast, Reliable Residential Plumbing Service across North DFW. Upfront, Flat-Rate Pricing Guaranteed.</h1>
-          <p class="subhead" style="max-width: 640px;">Our Licensed & Insured Professionals deliver same-day solutions for all major residential needs throughout the North Dallas region, including: water heater installation and repair, comprehensive drain cleaning, faucet repair, slab leak detection, and 24/7 emergency plumbing. We proudly guarantee clear prices, clean work, and zero surprises in all service areas, including Little Elm (75036), Oak Point (75068), Aubrey (76227), and Prosper (75078).</p>
+          <p class="subhead" style="max-width: 640px;">Our Licensed & Insured Professionals deliver same-day solutions for all major residential needs throughout the North Dallas region, including: water heater installation and repair, comprehensive drain cleaning, faucet repair, slab leak detection, and urgent plumbing support. We proudly guarantee clear prices, clean work, and zero surprises in all service areas, including Little Elm (75036), Oak Point (75068), Aubrey (76227), and Prosper (75078).</p>
           <p class="form-note" style="color:#e0edff; font-weight:700; margin:4px 0 10px;">Instant estimates. Same-day service. No surprises, ever.</p>
         </div>
         <div class="hero-card card reveal">
@@ -619,7 +610,6 @@
               <div style="display:flex; gap:8px; align-items:center; justify-content:center; font-weight:600; flex-wrap:wrap; font-size:9px; opacity:0.7; color:#0b2746;">
                 <span style="white-space:nowrap;">✔️ 30-second results</span>
                 <span style="white-space:nowrap;">🔒 Private & secure</span>
-                <span style="white-space:nowrap;">⭐ 4.9 rating (47 reviews)</span>
               </div>
             </div>
             <div style="display:flex; justify-content:center; margin-top:18px; margin-bottom: 10px;">
@@ -700,13 +690,6 @@
           <div class="price">$1,600 – $2,200</div>
           <div class="small">Tankless options quoted on request.</div>
         </div>
-        <div class="service-card reveal">
-          <div class="icon-circle">24/7</div>
-          <h3>Emergency Plumbing</h3>
-          <p>24/7 emergency support for burst pipes, major leaks, and backups.</p>
-          <div class="price">Varies by issue</div>
-          <div class="small">Priority dispatch day or night.</div>
-        </div>
       </div>
       <p class="small" style="margin-top:16px; color: var(--muted);">Need something else? Call us for a custom quote.</p>
     </section>
@@ -748,7 +731,6 @@
                 <option>Leak Repair</option>
                 <option>Water Heater</option>
                 <option>Fixture Install</option>
-                <option>Emergency</option>
                 <option>Other</option>
               </select>
             </div>
@@ -783,29 +765,7 @@
       </ul>
     </section>
 
-    <section class="section" id="reviews">
-      <header class="dark">
-        <h2>Customer Reviews</h2>
-        <p>What North DFW homeowners are saying.</p>
-      </header>
-      <div class="testimonial-grid">
-        <div class="testimonial reveal">
-          <div class="rating">★★★★★</div>
-          <p>“Fast service and honest pricing — highly recommend!”</p>
-          <cite>— Sarah M., Little Elm</cite>
-        </div>
-        <div class="testimonial reveal">
-          <div class="rating">★★★★★</div>
-          <p>“Diagnosed my water heater in minutes and saved me money.”</p>
-          <cite>— Jason R., Aubrey</cite>
-        </div>
-        <div class="testimonial reveal">
-          <div class="rating">★★★★★</div>
-          <p>“Professional, on time, and upfront. Great experience.”</p>
-          <cite>— Maria T., Prosper</cite>
-        </div>
-      </div>
-    </section>
+    <!-- Reviews section hidden until real reviews are available -->
 
     <section class="section" id="service-areas">
       <header class="dark">
@@ -831,14 +791,14 @@
           <strong>Aubrey (76227)</strong>
           <ul>
             <li>Water heater specialists</li>
-            <li>Emergency response</li>
+            <li>Fast local response</li>
           </ul>
         </div>
         <div class="area-card reveal">
           <strong>Prosper (75078)</strong>
           <ul>
-            <li>24/7 emergency plumbing</li>
             <li>Full-service plumbing</li>
+            <li>Fast local response</li>
           </ul>
         </div>
       </div>
@@ -852,7 +812,7 @@
       <div class="why-grid">
         <div class="why-item reveal"><strong>Workmanship Guarantee</strong>Done right the first time, backed by our clean-home promise.</div>
         <div class="why-item reveal"><strong>Upfront Flat-Rate Pricing</strong>You know the price before we start—no surprise add-ons.</div>
-        <div class="why-item reveal"><strong>Fast Response Times</strong>Same-day service available across North DFW, including emergencies.</div>
+        <div class="why-item reveal"><strong>Fast Response Times</strong>Same-day service available across North DFW.</div>
         <div class="why-item reveal"><strong>Licensed & Insured</strong>Texas licensed pros who protect your home and meet code.</div>
       </div>
     </section>
@@ -864,8 +824,8 @@
       </header>
       <div class="faq-list" style="display:grid; gap:18px; max-width:800px;">
         <div class="faq-item" style="padding-bottom:12px; border-bottom:1px solid #e4ebf3;">
-          <h3>What is your emergency response time in Little Elm?</h3>
-          <p>We prioritize emergencies with arrival typically within 2–4 hours, and 1–2 hours for burst pipes or major leaks in 75036.</p>
+          <h3>Do you offer emergency response in Little Elm?</h3>
+          <p>We focus on scheduled and same-day service. For after-hours situations, please leave a message and we’ll respond promptly during business hours.</p>
         </div>
         <div class="faq-item" style="padding-bottom:12px; border-bottom:1px solid #e4ebf3;">
           <h3>Do you offer upfront flat-rate pricing?</h3>
@@ -910,7 +870,7 @@
       <div class="footer-heading">Contact</div>
       <div class="footer-note">Phone: <a href="tel:9403053083"><span aria-hidden="true">📞</span> Call Now</a></div>
       <div class="footer-note">Email: <a href="mailto:support@theplumbingcompany-tx.com">support@theplumbingcompany-tx.com</a></div>
-      <div class="footer-note">Hours: Mon-Sat 7a-7p - 24/7 emergencies</div>
+          <div class="footer-note">Hours: Mon-Sat 7a-7p</div>
     </div>
     <div>
       <div class="footer-heading">Links</div>
@@ -1053,7 +1013,6 @@
         'Leak Repair': '$149 - $450',
         'Drain/Clog': '$150 - $400',
         'Fixture Install': '$125 - $350',
-        'Emergency': 'Call for fast quote',
         'Other': '$150 - $650'
       };
 
@@ -1248,10 +1207,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "What is your emergency response time in Little Elm?",
+            "name": "Do you offer emergency response in Little Elm?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We prioritize emergencies with arrival typically within 2–4 hours, and 1–2 hours for burst pipes or major leaks in 75036."
+              "text": "We focus on scheduled and same-day service. For after-hours situations, please leave a message and we’ll respond promptly during business hours."
             }
           },
           {
