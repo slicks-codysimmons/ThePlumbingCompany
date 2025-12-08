@@ -154,7 +154,7 @@
       position: relative;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 8px 18px 20px;
+      padding: 8px 18px 0px;
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       gap: 14px;
@@ -231,7 +231,7 @@
     .badge { display: inline-block; padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; }
     .badge.warn { background: rgba(255,122,26,0.12); color: var(--accent-dark); }
     .badge.safe { background: rgba(14,137,84,0.12); color: #0e8954; }
-    .giveaway-wrap { width: 100%; margin: 0 auto 14px; padding: 0; display: block; text-decoration: none; color: inherit; }
+    .giveaway-wrap { width: 100%; margin: 0 auto 0; padding: 0; display: block; text-decoration: none; color: inherit; }
     .giveaway-card {
       margin: 0;
       padding: 14px 32px;
@@ -282,7 +282,8 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 22px;
-      margin-top: 18px;
+      margin-top: 32px;
+      margin-bottom: 32px;
     }
     .service-card {
       border: 1px solid #e7ecf5;
@@ -486,10 +487,11 @@
         <div class="giveaway-card">
           <div class="giveaway-inner">
             <div class="giveaway-label" style="text-shadow: 0 0 10px rgba(255,255,255,0.4);">Win Our Grand Prize Giveaway</div>
-            <div class="giveaway-note">Every service = automatic entries • 2× BONUS ENTRIES until March 31!</div>
+            <div class="giveaway-note">Every service = automatic entries</div>
             <ul class="giveaway-list">
-              <li class="bullet-style">Prize Reveal: April 1</li>
-              <li class="bullet-style">Winner Drawn: Christmas Eve</li>
+              <li class="bullet-style">Must be 18+ to win</li>
+              <li class="bullet-style">Individual Homeowners Only (no businesses)</li>
+              <li class="bullet-style">Winner can choose between the GRAND PRIZE or $5,000 cash</li>
             </ul>
             <span class="btn" style="border: none; background: transparent; padding: 10px 8px 4px; font-size: 11px; color:#eaf3ff; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">See Details →</span>
           </div>
@@ -500,7 +502,7 @@
           <div class="form-note" style="color:#d7e5f7; font-weight:700; margin-bottom:4px;">Trusted by homeowners across North DFW</div>
           <div class="eyebrow">Proudly serving Little Elm, Oak Point, Aubrey & Prosper</div>
           <h1>Fast, Reliable Residential Plumbing Service across North DFW. Upfront, Flat-Rate Pricing Guaranteed.</h1>
-          <p class="subhead" style="max-width: 640px;">Our Licensed & Insured Professionals deliver same-day solutions for all major residential needs throughout the North Dallas region, including: water heater installation and repair, comprehensive drain cleaning, faucet repair, and slab leak detection. We proudly guarantee clear prices, clean work, and zero surprises in all service areas, including Little Elm (75036), Oak Point (75068), Aubrey (76227), and Prosper (75078).</p>
+          <p class="subhead" style="max-width: 640px;">Our Licensed & Insured Professionals deliver fast, dependable solutions for major residential needs throughout the North Dallas region, including: water heater installation and repair, comprehensive drain cleaning, faucet repair, and slab leak detection. We proudly guarantee clear prices, clean work, and zero surprises in all service areas, including Little Elm (75036), Oak Point (75068), Aubrey (76227), and Prosper (75078).</p>
           <p class="form-note" style="color:#e0edff; font-weight:700; margin:4px 0 10px;">Instant estimates. Same-day service. No surprises, ever.</p>
         </div>
         <div class="hero-card card reveal">
@@ -566,7 +568,7 @@
       </div>
     </section>
 
-    <section id="services" class="section">
+    <section id="services" class="section" style="padding-top:80px; padding-bottom:40px; margin-top:40px;">
       <div class="service-banner">
         <h2>Core Plumbing Services</h2>
         <p>Upfront flat-rate pricing on common jobs so you know what to expect before we start.</p>
@@ -578,6 +580,7 @@
           <p>Clearing clogged sinks, tubs, and main lines with professional-grade equipment.</p>
           <div class="price">$99 - $189 flat-rate*</div>
           <div class="small">*Most single-line clogs. Final quote on site.</div>
+          <div class="small" style="margin-top:6px;">Professional-grade equipment used on every visit.</div>
         </div>
         <div class="service-card reveal">
           <div class="icon-circle">LR</div>
@@ -585,6 +588,7 @@
           <p>Stop leaks fast to prevent damage - from dripping faucets to hidden pipe leaks.</p>
           <div class="price">From $149*</div>
           <div class="small">Includes diagnosis and standard repair.</div>
+          <div class="small" style="margin-top:6px;">We diagnose the exact source before repair.</div>
         </div>
         <div class="service-card reveal">
           <div class="icon-circle">WH</div>
@@ -592,6 +596,7 @@
           <p>Repair or replace tank and tankless units for reliable hot water.</p>
           <div class="price">$395 - $1,650 range</div>
           <div class="small">Price depends on unit type and capacity.</div>
+          <div class="small" style="margin-top:6px;">Same-day replacements available when stock allows.</div>
         </div>
         <div class="service-card reveal">
           <div class="icon-circle">FX</div>
@@ -599,6 +604,7 @@
           <p>Faucets, toilets, disposals, and showers installed with clean finishes.</p>
           <div class="price">From $125 per fixture</div>
           <div class="small">Hardware supplied or provided by you.</div>
+          <div class="small" style="margin-top:6px;">We protect your space and deliver clean finishes.</div>
         </div>
         <div class="service-card reveal">
           <div class="icon-circle">SC</div>
@@ -606,13 +612,14 @@
           <p>Camera inspections to pinpoint breaks, roots, and blockages before digging.</p>
           <div class="price">$249 - $349</div>
           <div class="small">Includes video findings and next steps.</div>
+          <div class="small" style="margin-top:6px;">Includes findings you can review and keep.</div>
         </div>
       </div>
       <p class="small" style="margin-top:16px; color: var(--muted);">Need something else? Tap below to call us for a custom quote.</p>
       <a class="btn primary" href="tel:9403053083" style="margin-top:10px;">📞 Call Us Now</a>
     </section>
 
-    <section id="schedule" class="section" style="padding-top: 70px;">
+    <section id="schedule" class="section" style="padding-top: 40px;">
       <header class="dark">
         <h2>Schedule Your Service</h2>
         <p>Tell us what you need and we'll confirm your flat-rate price and arrival window.</p>
@@ -626,7 +633,7 @@
           <p class="form-note" style="margin-top:10px;">Flat-rate pricing available on most jobs. No surprise add-ons ever.</p>
           <a class="btn primary" href="tel:9403053083" style="margin-top:14px;">📞 Call Us Now</a>
         </div>
-        <div id="contact" class="card reveal">
+        <div id="contact" class="card reveal" style="padding:16px 32px 32px;">
           <h3>Online Request</h3>
           <form id="contactForm" class="contact-form">
             <div class="field">
@@ -688,6 +695,7 @@
             <li>Fast, reliable scheduling with honest communication</li>
             <li>Respect for your home and time</li>
             <li>Quality workmanship that solves the problem right the first time</li>
+            <li>Only plumber with $5,000+ annual giveaways</li>
           </ul>
           <p>When our employees are supported, our customers receive the 5-star service they deserve.</p>
         </div>
@@ -709,15 +717,15 @@
         <div class="area-card reveal">
           <strong>Little Elm (75036)</strong>
           <ul>
-            <li>Same-day scheduling</li>
-            <li>Water heater & leak specialists</li>
+            <li>Same-day scheduling available</li>
+            <li>Fast water heater replacements & leak specialists</li>
           </ul>
         </div>
         <div class="area-card reveal">
           <strong>Oak Point (75068)</strong>
           <ul>
             <li>Residential plumbing & repairs</li>
-            <li>Upfront flat-rate pricing</li>
+            <li>Upfront flat-rate pricing on common jobs</li>
           </ul>
         </div>
         <div class="area-card reveal">
@@ -731,7 +739,7 @@
           <strong>Prosper (75078)</strong>
           <ul>
             <li>Full-service plumbing</li>
-            <li>Reliable scheduling</li>
+            <li>Reliable scheduling and clear quotes</li>
           </ul>
         </div>
       </div>
@@ -750,6 +758,10 @@
         <div class="faq-item">
           <h3>Do you offer upfront flat-rate pricing?</h3>
           <p>Yes. We provide your flat-rate before work begins—no hidden fees, no surprises.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Do you offer emergency service?</h3>
+          <p>We offer same-day service on most jobs and prioritize urgent issues like leaks, water heater failures, and clogs.</p>
         </div>
         <div class="faq-item">
           <h3>How much does water heater replacement cost in Little Elm?</h3>
