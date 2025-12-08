@@ -140,6 +140,7 @@
                   radial-gradient(circle at 80% 0%, rgba(15,60,104,0.14), transparent 30%),
                   linear-gradient(135deg, #0b2746 0%, #0f3c68 45%, #0b2746 100%);
       color: #fff;
+      padding-bottom: 48px;
     }
     .hero::after {
       content: '';
@@ -154,7 +155,7 @@
       position: relative;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 8px 18px 0px;
+      padding: 12px 18px 12px;
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
       gap: 14px;
@@ -288,12 +289,14 @@
     .service-card {
       border: 1px solid #e7ecf5;
       border-radius: 18px;
-      padding: 22px;
+      padding: 24px;
       background: #fff;
       transition: transform 0.18s ease, box-shadow 0.2s ease, border-color 0.2s ease;
       position: relative;
+      display: grid;
+      gap: 12px;
     }
-    .service-card:hover { transform: translateY(-3px); box-shadow: 0 10px 26px rgba(0,0,0,0.06); border-color: rgba(11,39,70,0.15); }
+    .service-card:hover { transform: translateY(-3px); box-shadow: none; border-color: rgba(11,39,70,0.15); }
     .icon-circle {
       min-width: 54px;
       min-height: 54px;
@@ -309,7 +312,7 @@
       border: 1px solid rgba(255,122,26,0.25);
       letter-spacing: 0.05em;
     }
-    .service-card h3 { margin: 0 0 12px; color: #0b2746; }
+    .service-card h3 { margin: 0; color: #0b2746; font-weight: 800; }
     .service-card p { color: var(--text); }
     .price { font-weight: 800; color: var(--navy); margin-top: 12px; }
     .small { font-size: 13px; color: var(--muted); }
@@ -351,6 +354,16 @@
     .contact-details h3 { margin-bottom: 4px; }
     .contact-row { display: flex; align-items: center; gap: 10px; margin: 8px 0; color: var(--muted); font-weight: 600; }
     .contact-row strong { color: var(--navy); }
+
+    .contact-stack { display: grid; gap: 24px; margin-top: 24px; }
+    .contact-form-card { padding: 20px 28px 28px; }
+    .contact-form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px 18px;
+    }
+    .contact-form-grid .field { margin: 0; }
+    .contact-form-grid .field.full { grid-column: 1 / -1; }
 
     .why-grid {
       display: grid;
@@ -487,11 +500,10 @@
         <div class="giveaway-card">
           <div class="giveaway-inner">
             <div class="giveaway-label" style="text-shadow: 0 0 10px rgba(255,255,255,0.4);">Win Our Grand Prize Giveaway</div>
-            <div class="giveaway-note">Every service = automatic entries</div>
+            <div class="giveaway-note">Every Service = Automatic Entries</div>
             <ul class="giveaway-list">
-              <li class="bullet-style">Must be 18+ to win</li>
-              <li class="bullet-style">Individual Homeowners Only (no businesses)</li>
               <li class="bullet-style">Winner can choose between the GRAND PRIZE or $5,000 cash</li>
+              <li class="bullet-style">GRAND PRIZE will be revealed June 1st</li>
             </ul>
             <span class="btn" style="border: none; background: transparent; padding: 10px 8px 4px; font-size: 11px; color:#eaf3ff; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">See Details →</span>
           </div>
@@ -575,7 +587,6 @@
       </div>
       <div class="service-grid">
         <div class="service-card reveal">
-          <div class="icon-circle">DC</div>
           <h3>Drain Cleaning</h3>
           <p>Clearing clogged sinks, tubs, and main lines with professional-grade equipment.</p>
           <div class="price">$99 - $189 flat-rate*</div>
@@ -583,7 +594,6 @@
           <div class="small" style="margin-top:6px;">Professional-grade equipment used on every visit.</div>
         </div>
         <div class="service-card reveal">
-          <div class="icon-circle">LR</div>
           <h3>Leak Repair</h3>
           <p>Stop leaks fast to prevent damage - from dripping faucets to hidden pipe leaks.</p>
           <div class="price">From $149*</div>
@@ -591,7 +601,6 @@
           <div class="small" style="margin-top:6px;">We diagnose the exact source before repair.</div>
         </div>
         <div class="service-card reveal">
-          <div class="icon-circle">WH</div>
           <h3>Water Heaters</h3>
           <p>Repair or replace tank and tankless units for reliable hot water.</p>
           <div class="price">$395 - $1,650 range</div>
@@ -599,7 +608,6 @@
           <div class="small" style="margin-top:6px;">Same-day replacements available when stock allows.</div>
         </div>
         <div class="service-card reveal">
-          <div class="icon-circle">FX</div>
           <h3>Fixture Installs</h3>
           <p>Faucets, toilets, disposals, and showers installed with clean finishes.</p>
           <div class="price">From $125 per fixture</div>
@@ -607,7 +615,6 @@
           <div class="small" style="margin-top:6px;">We protect your space and deliver clean finishes.</div>
         </div>
         <div class="service-card reveal">
-          <div class="icon-circle">SC</div>
           <h3>Sewer Camera & Locating</h3>
           <p>Camera inspections to pinpoint breaks, roots, and blockages before digging.</p>
           <div class="price">$249 - $349</div>
@@ -617,62 +624,6 @@
       </div>
       <p class="small" style="margin-top:16px; color: var(--muted);">Need something else? Tap below to call us for a custom quote.</p>
       <a class="btn primary" href="tel:9403053083" style="margin-top:10px;">📞 Call Us Now</a>
-    </section>
-
-    <section id="schedule" class="section" style="padding-top: 40px;">
-      <header class="dark">
-        <h2>Schedule Your Service</h2>
-        <p>Tell us what you need and we'll confirm your flat-rate price and arrival window.</p>
-      </header>
-      <div class="contact-split">
-        <div class="contact-details reveal">
-          <h3>Quick ways to reach us</h3>
-          <div class="contact-row"><strong>Email:</strong> support@theplumbingcompany-tx.com</div>
-          <div class="contact-row"><strong>Area:</strong> Little Elm - Oak Point - Aubrey - Prosper</div>
-          <div class="contact-row"><strong>Availability:</strong> Same-day appointments available</div>
-          <p class="form-note" style="margin-top:10px;">Flat-rate pricing available on most jobs. No surprise add-ons ever.</p>
-          <a class="btn primary" href="tel:9403053083" style="margin-top:14px;">📞 Call Us Now</a>
-        </div>
-        <div id="contact" class="card reveal" style="padding:16px 32px 32px;">
-          <h3>Online Request</h3>
-          <form id="contactForm" class="contact-form">
-            <div class="field">
-              <label for="contact-name">Name</label>
-              <input id="contact-name" name="name" type="text" placeholder="Your name" required>
-            </div>
-            <div class="field">
-              <label for="contact-phone">Phone</label>
-              <input id="contact-phone" name="phone" type="tel" placeholder="(###) ###-####" required>
-            </div>
-            <div class="field">
-              <label for="contact-email">Email</label>
-              <input id="contact-email" name="email" type="email" placeholder="you@example.com">
-            </div>
-            <div class="field">
-              <label for="contact-service">Service</label>
-              <select id="contact-service" name="service">
-                <option>Drain Cleaning</option>
-                <option>Leak Repair</option>
-                <option>Water Heater</option>
-                <option>Fixture Install</option>
-                <option>Emergency</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="contact-message">Your Message</label>
-              <textarea id="contact-message" name="message" placeholder="Briefly describe the issue" required></textarea>
-            </div>
-            <div class="field">
-              <label for="contact-time">Preferred Date/Time</label>
-              <input id="contact-time" name="time" type="text" placeholder="Tomorrow AM, This afternoon, etc.">
-            </div>
-            <button class="btn primary" type="submit">Submit Request</button>
-            <div class="form-note form-response" aria-live="polite"></div>
-            <div class="form-note">Your info stays private. We use it only to contact you about your service request.</div>
-          </form>
-        </div>
-      </div>
     </section>
 
     <section id="why" class="section" style="padding-top: 10px;">
@@ -704,6 +655,64 @@
           <h3>Our 5-Star Promise</h3>
           <p>We measure our success by the number of 5-star experiences we earn from homeowners. Our commitment is to show up on time, communicate clearly, do the job right, and leave your home better than we found it.</p>
           <p>If we fall short in any way, we will make it right — that’s our promise. Your feedback helps shape our company, and we’re committed to earning every single 5-star review one homeowner at a time.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="section" style="padding-top: 40px;">
+      <header class="dark">
+        <h2>Schedule Your Service</h2>
+        <p>Tell us what you need and we'll confirm your flat-rate price and arrival window.</p>
+      </header>
+      <div class="contact-stack">
+        <div class="contact-details reveal">
+          <h3>Quick ways to reach us</h3>
+          <div class="contact-row"><strong>Email:</strong> support@theplumbingcompany-tx.com</div>
+          <div class="contact-row"><strong>Area:</strong> Little Elm - Oak Point - Aubrey - Prosper</div>
+          <div class="contact-row"><strong>Availability:</strong> Same-day appointments available</div>
+          <p class="form-note" style="margin-top:10px;">Flat-rate pricing available on most jobs. No surprise add-ons ever.</p>
+          <a class="btn primary" href="tel:9403053083" style="margin-top:14px;">📞 Call Us Now</a>
+        </div>
+        <div id="contact" class="card reveal contact-form-card">
+          <h3>Online Request</h3>
+          <form id="contactForm" class="contact-form">
+            <div class="contact-form-grid">
+              <div class="field">
+                <label for="contact-name">Name</label>
+                <input id="contact-name" name="name" type="text" placeholder="Your name" required>
+              </div>
+              <div class="field">
+                <label for="contact-phone">Phone</label>
+                <input id="contact-phone" name="phone" type="tel" placeholder="(###) ###-####" required>
+              </div>
+              <div class="field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="email" type="email" placeholder="you@example.com">
+              </div>
+              <div class="field">
+                <label for="contact-service">Service</label>
+                <select id="contact-service" name="service">
+                  <option>Drain Cleaning</option>
+                  <option>Leak Repair</option>
+                  <option>Water Heater</option>
+                  <option>Fixture Install</option>
+                  <option>Emergency</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field full">
+                <label for="contact-message">Your Message</label>
+                <textarea id="contact-message" name="message" placeholder="Briefly describe the issue" required></textarea>
+              </div>
+              <div class="field">
+                <label for="contact-time">Preferred Date/Time</label>
+                <input id="contact-time" name="time" type="text" placeholder="Tomorrow AM, This afternoon, etc.">
+              </div>
+            </div>
+            <button class="btn primary" type="submit" style="margin-top:14px;">Submit Request</button>
+            <div class="form-note form-response" aria-live="polite"></div>
+            <div class="form-note">Your info stays private. We use it only to contact you about your service request.</div>
+          </form>
         </div>
       </div>
     </section>
