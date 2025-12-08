@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
-  <script type="text/javascript" src="https://cdn.callrail.com/companies/302626408/9199716620cb3fd4156d/12/swap.js"></script>
   <style>
     :root {
       --navy: #0b2746;
@@ -34,6 +33,7 @@
     a { color: var(--navy); text-decoration: none; }
 
     .top-bar {
+      display: block;
       background: var(--accent);
       color: #fff;
       text-align: center;
@@ -41,6 +41,7 @@
       font-weight: 600;
       letter-spacing: 0.02em;
       font-size: 14px;
+      text-decoration: none;
     }
 
     .site-header {
@@ -85,14 +86,6 @@
       mix-blend-mode: screen;
     }
     .site-header nav { display: none; }
-    .site-header nav a {
-      color: #d7e5f7;
-      font-weight: 600;
-      padding: 6px 10px;
-      border-radius: 8px;
-      transition: color 0.2s ease, background 0.2s ease;
-    }
-    .site-header nav a:hover, .site-header nav a:focus { color: #fff; background: rgba(255,255,255,0.08); }
 
     .cta-inline {
       display: flex;
@@ -196,30 +189,19 @@
       padding: 32px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.05);
     }
-    /* HERO CARD - unified styles */
     .hero-card {
       position: relative;
-      margin-top: 24px;
-      padding: 10px 24px 12px;
+      margin-top: 12px;
+      padding: 24px 28px 16px;
       align-self: flex-start;
       margin-left: 24px;
-      min-height: 380px;
-      transition: height 0.2s ease;
-      overflow: hidden;
-      display: grid;
-      align-content: start;
     }
-    .hero-card h3 { margin: 16px 0 14px; font-size: 24px; }
-    .hero-card h3 + .diag-pane { margin-top: 0; }
-    .diag-pane .field:first-of-type { margin-top: 6px; }
+    .hero-card h3 { margin: 0 0 0; font-size: 24px; }
     .contact-form { display: grid; gap: 18px; }
-    .hero-card .field {
+    .field {
       display: grid;
       gap: 9px;
       margin-bottom: 8px;
-      max-width: 90%;
-      margin-left: auto;
-      margin-right: auto;
     }
     .field label { font-weight: 700; font-size: 14px; color: rgba(11,39,70,0.7); }
     input, select, textarea {
@@ -233,59 +215,26 @@
       transition: border 0.2s ease, box-shadow 0.2s ease;
     }
     textarea::placeholder {
-      transition: opacity 0.5s ease;
+      transition: opacity 0.25s ease;
       opacity: 0.55;
       color: #8a8f99;
       font-size: 14px;
     }
     input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,122,26,0.18); background: #fff; }
-    input[type="file"]::file-selector-button {
-      background: linear-gradient(180deg, rgba(15,60,104,0.5) 0%, rgba(11,39,70,0.5) 100%);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 8px;
-      padding: 6px 10px;
-      margin-right: 8px;
-      font-weight: 700;
-      font-size: 12px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      transition: transform 0.15s ease, background 0.2s ease;
-    }
-    input[type="file"]::file-selector-button:hover {
-      transform: translateY(-1px);
-      background: linear-gradient(180deg, rgba(21,70,124,0.6) 0%, rgba(12,48,83,0.6) 100%);
-    }
     textarea { min-height: 72px; resize: vertical; }
     .form-note { font-size: 12px; color: var(--muted); }
-    /* remove duplicate hero-card definitions */
-    .diag-pane {
-      position: relative;
-      width: 100%;
-      opacity: 0;
-      pointer-events: none;
-      transform: translateY(10px);
-      transition: opacity 0.25s ease, transform 0.25s ease;
-      display: none;
-      padding: 4px 12px 4px;
-    }
-    .diag-pane.active {
-      opacity: 1;
-      pointer-events: auto;
-      transform: translateY(0);
-      z-index: 1;
-      display: block;
-    }
+    .diag-pane { display: none; }
+    .diag-pane.active { display: block; }
     .ai-results { display: grid; gap: 14px; }
     .ai-card { border: 1px solid #e4ebf3; border-radius: 12px; padding: 14px 16px; background: #f9fbff; }
     .ai-card strong { color: var(--navy); }
     .badge { display: inline-block; padding: 4px 8px; border-radius: 999px; font-size: 12px; font-weight: 700; }
     .badge.warn { background: rgba(255,122,26,0.12); color: var(--accent-dark); }
     .badge.safe { background: rgba(14,137,84,0.12); color: #0e8954; }
-    .giveaway-wrap { width: 100%; margin: 0 auto 14px; padding: 0; }
+    .giveaway-wrap { width: 100%; margin: 0 auto 14px; padding: 0; display: block; text-decoration: none; color: inherit; }
     .giveaway-card {
       margin: 0;
-      padding: 10px 24px;
+      padding: 14px 32px;
       border: none;
       border-radius: 0;
       background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(11,39,70,0.35));
@@ -293,22 +242,10 @@
       box-shadow: inset 0 -1px 0 rgba(255,255,255,0.06);
       display: block;
       width: 100%;
-      text-decoration: none;
-      cursor: pointer;
     }
-    .giveaway-inner {
-      max-width: 1140px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .giveaway-left { display: grid; gap: 6px; }
+    .giveaway-inner { max-width: 1140px; margin: 0 auto; }
     .giveaway-label { font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: #ffcba4; font-weight: 800; margin: 0 0 3px 4px; line-height: 1.25; }
     .giveaway-note { margin: 0 0 4px 4px; font-weight: 600; color: #eaf3ff; font-size: 12px; line-height: 1.35; }
-    .giveaway-note.mobile-only { display: none; }
     .giveaway-list { margin: 6px 0 0; padding-left: 24px; color: #d7e5f7; }
     .giveaway-list li { list-style: disc; margin-bottom: 3px; font-size: 12px; font-weight: 600; }
     .giveaway-list li:last-child { margin-bottom: 0; }
@@ -380,8 +317,10 @@
     .why-item { padding: 14px 16px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
     .why-item strong { color: var(--navy); display: block; margin-bottom: 6px; }
 
-    .testimonial-grid { display: none; }
-    .testimonial { display: none; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 16px; margin-top: 18px; }
+    .testimonial { padding: 16px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
+    .testimonial .rating { color: #f5a623; font-weight: 800; }
+    .testimonial cite { color: var(--muted); font-style: normal; font-weight: 700; }
 
     .area-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 14px; margin-top: 12px; }
     .area-card { padding: 14px; border: 1px solid #e7ecf5; border-radius: 14px; background: #fff; box-shadow: 0 6px 18px rgba(0,0,0,0.04); }
@@ -463,36 +402,6 @@
       .cta-row .btn { width: 100%; justify-content: center; }
       .contact-details, .card { padding: 18px; }
       .top-bar { font-size: 13px; }
-      .hero-inner { padding: 12px 12px 18px; display: flex; flex-direction: column; }
-      .hero-inner > .hero-card { order: -1; }
-      .mobile-toggle { display: none; }
-      /* hide header CTA on mobile; footer bar will handle call action */
-      .cta-inline { display: none; }
-      /* widen the card on mobile */
-      .hero-card {
-        margin-left: 0;
-        margin-right: 0;
-        padding: 12px 20px 14px;
-        min-height: 400px;
-        max-width: 96vw;
-        align-self: center;
-        width: 100%;
-      }
-      .hero-card h3 { margin: 16px 0 14px; }
-      .diag-pane { padding: 0 6px 10px; }
-      .giveaway-note,
-      .giveaway-list { display: none; }
-      .giveaway-inner { grid-template-columns: 1fr auto; }
-      .giveaway-note.mobile-only { display: block; margin: 2px 0 0; font-size: 11px; color: #eaf3ff; }
-      .hero-card .field {
-        max-width: 92%;
-        margin-top: 8px;
-      }
-      #diag-run {
-        width: 92% !important;
-        max-width: none !important;
-        margin-top: 12px;
-      }
     }
   </style>
   <script type="application/ld+json">
@@ -501,7 +410,7 @@
     "@type": "LocalBusiness",
     "name": "The Plumbing Company",
   "image": "https://theplumbingcompany-tx.com/logo.png",
-    "telephone": "940-305-3083",
+  "telephone": "940-305-3083",
   "url": "https://theplumbingcompany-tx.com",
   "address": {
     "@type": "PostalAddress",
@@ -531,13 +440,20 @@
       "closes": "23:59"
     },
     "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Plumbing Services",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Water Heater Repair", "description": "Same-day water heater repair and replacement services" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Drain Cleaning", "description": "Professional drain cleaning and clearing services" } },
-        
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Emergency Plumbing", "description": "Emergency plumbing services" } }
       ]
     }
   }
@@ -554,10 +470,11 @@
         <a href="#hero">Home</a>
         <a href="#services">Services</a>
         <a href="#schedule">Pricing & Scheduling</a>
+        <a href="#why">Why Us</a>
         <a href="#contact">Contact</a>
       </nav>
       <div class="cta-inline">
-        <a class="btn outline" href="tel:9403053083"><span aria-hidden="true">📞</span> Call Now</a>
+        <a class="btn outline" href="tel:9403053083">📞 Call Us Now</a>
         <button class="mobile-toggle" aria-label="Toggle menu">Menu</button>
       </div>
     </div>
@@ -565,36 +482,29 @@
 
   <main>
     <section id="hero" class="hero">
-      <div class="giveaway-wrap">
-        <a class="giveaway-card" href="giveaway-details.html" aria-label="See giveaway details">
+      <a class="giveaway-wrap" href="giveaway-details.html">
+        <div class="giveaway-card">
           <div class="giveaway-inner">
-            <div class="giveaway-left">
-              <div class="giveaway-label" style="text-shadow: 0 0 10px rgba(255,255,255,0.4);">Win Our Grand Prize Giveaway</div>
-              <div class="giveaway-note">Every service = automatic entries</div>
-              <div class="giveaway-note mobile-only">Every service = automatic entries</div>
-              <ul class="giveaway-list">
-                <li class="bullet-style">Must be 18 years or older to win</li>
-                <li class="bullet-style">Individual homeowners only, no businesses</li>
-                <li class="bullet-style">Winner will have choice of GRAND PRIZE or $5,000 cash</li>
-              </ul>
-              <div style="text-align:left; font-size:7px; color:#6f88ad; margin: 9px 0 0;">
-                No purchase necessary. Void where prohibited. See official rules.
-              </div>
-            </div>
-            <span aria-hidden="true" style="font-weight:700; font-size:11px; color:#eaf3ff; display:inline-flex; align-items:center; gap:6px; justify-self:end;">See Details →</span>
+            <div class="giveaway-label" style="text-shadow: 0 0 10px rgba(255,255,255,0.4);">Win Our Grand Prize Giveaway</div>
+            <div class="giveaway-note">Every service = automatic entries • 2× BONUS ENTRIES until March 31!</div>
+            <ul class="giveaway-list">
+              <li class="bullet-style">Prize Reveal: April 1</li>
+              <li class="bullet-style">Winner Drawn: Christmas Eve</li>
+            </ul>
+            <span class="btn" style="border: none; background: transparent; padding: 10px 8px 4px; font-size: 11px; color:#eaf3ff; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:6px;">See Details →</span>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
       <div class="hero-inner" style="align-items:start;">
         <div class="hero-copy reveal">
-          <div class="form-note" style="color:#d7e5f7; font-weight:700; margin-bottom:4px;">Serving homeowners across North DFW</div>
+          <div class="form-note" style="color:#d7e5f7; font-weight:700; margin-bottom:4px;">Trusted by homeowners across North DFW</div>
           <div class="eyebrow">Proudly serving Little Elm, Oak Point, Aubrey & Prosper</div>
-          <h1>Local, Licensed Residential Plumbing across North DFW with Clear, Upfront Pricing.</h1>
-          <p class="subhead" style="max-width: 640px;">Our Licensed & Insured Professionals deliver fast, reliable solutions for major residential needs throughout the North Dallas region, including: water heater installation and repair, comprehensive drain cleaning, faucet repair, slab leak detection, and urgent plumbing support. We focus on clear pricing, clean work, and transparent updates in all service areas, including Little Elm (75036), Oak Point (75068), Aubrey (76227), and Prosper (75078).</p>
-          <p class="form-note" style="color:#e0edff; font-weight:700; margin:4px 0 10px;">Instant estimates. Fast, responsive scheduling. Clear, flat-rate pricing on common jobs.</p>
+          <h1>Fast, Reliable Residential Plumbing Service across North DFW. Upfront, Flat-Rate Pricing Guaranteed.</h1>
+          <p class="subhead" style="max-width: 640px;">Our Licensed & Insured Professionals deliver same-day solutions for all major residential needs throughout the North Dallas region, including: water heater installation and repair, comprehensive drain cleaning, faucet repair, and slab leak detection. We proudly guarantee clear prices, clean work, and zero surprises in all service areas, including Little Elm (75036), Oak Point (75068), Aubrey (76227), and Prosper (75078).</p>
+          <p class="form-note" style="color:#e0edff; font-weight:700; margin:4px 0 10px;">Instant estimates. Same-day service. No surprises, ever.</p>
         </div>
         <div class="hero-card card reveal">
-          <h3 style="margin-bottom:6px; font-size:20px;">GET YOUR INSTANT ESTIMATE</h3>
+          <h3 style="margin-bottom:6px;">Instant Estimate</h3>
 
           <div class="diag-pane active" data-pane="1" style="display:block; padding-top:12px; padding-bottom:8px;">
             <div class="field">
@@ -609,10 +519,11 @@
               <div style="display:flex; gap:8px; align-items:center; justify-content:center; font-weight:600; flex-wrap:wrap; font-size:9px; opacity:0.7; color:#0b2746;">
                 <span style="white-space:nowrap;">✔️ 30-second results</span>
                 <span style="white-space:nowrap;">🔒 Private & secure</span>
+                <span style="white-space:nowrap;">⭐ 4.9 rating (47 reviews)</span>
               </div>
             </div>
-            <div style="display:flex; justify-content:center; margin-top:18px; margin-bottom: 10px;">
-              <button class="btn primary" id="diag-run" data-track="ai_diagnostic_submit" style="font-size:14px; padding:9px 14px; width:90%; max-width: 520px; text-transform: uppercase;">See Estimate Now</button>
+            <div style="display:flex; justify-content:center; margin-top:32px;">
+              <button class="btn primary" id="diag-run" data-track="ai_diagnostic_submit" style="font-size:16px; padding:10px 16px; width:100%;">Get Instant Estimate</button>
             </div>
             <div class="form-note form-response" aria-live="polite"></div>
           </div>
@@ -655,83 +566,50 @@
       </div>
     </section>
 
-    <section class="section" id="earn-five-stars" style="padding-top: 40px;">
-      <header class="dark">
-        <h2>Our 5-Star Service Commitment</h2>
-      </header>
-      <div style="display:grid; gap:18px; max-width: 900px; margin-top:10px;">
-        <div>
-          <h3 style="margin:0 0 8px; color: var(--navy);">Who We Are</h3>
-          <p style="color: var(--muted); max-width: 860px; margin:0 0 8px;">The Plumbing Company is a small, local, licensed residential service provider proudly serving North DFW. We built this company with a simple goal: deliver honest work, clear pricing, and reliable support for homeowners who want service they can trust. Every job matters to us, and every customer becomes part of our long-term reputation.</p>
-        </div>
-        <div>
-          <h3 style="margin:10px 0 8px; color: var(--navy);">Why Homeowners Choose Us</h3>
-          <p style="color: var(--muted); max-width: 860px; margin:0 0 8px;">We believe exceptional service starts with the people who provide it. That’s why we invest heavily in our team — paying top-of-market wages, offering performance-based bonuses, and creating an environment where employees are motivated to deliver their best work every day.</p>
-          <p style="color: var(--muted); max-width: 860px; margin:0 0 12px;">Our approach is straightforward:</p>
-          <ul class="why-grid" style="list-style:none; padding:0; margin:0 0 20px;">
-            <li class="why-item reveal"><strong>Clear, upfront pricing</strong>No surprises once we start.</li>
-            <li class="why-item reveal"><strong>Licensed & insured</strong>Professionals on every job.</li>
-            <li class="why-item reveal"><strong>Fast, reliable scheduling</strong>Honest communication throughout.</li>
-            <li class="why-item reveal"><strong>Respect for your home and time</strong>We protect your space and keep you updated.</li>
-            <li class="why-item reveal"><strong>Quality workmanship</strong>Focused on solving the problem right the first time.</li>
-          </ul>
-        </div>
-        <div>
-          <h3 style="margin:10px 0 8px; color: var(--navy);">Our 5-Star Promise</h3>
-          <p style="color: var(--muted); max-width: 860px; margin:0 0 8px;">We measure our success by the number of 5-star experiences we earn from homeowners. Our commitment is to show up on time, communicate clearly, do the job right, and leave your home better than we found it.</p>
-          <p style="color: var(--muted); max-width: 860px; margin:0;">If we fall short in any way, we will make it right — that’s our promise. Your feedback helps shape our company, and we’re committed to earning every single 5-star review one homeowner at a time.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="credibility">
-      <header>
-        <h2>Licensed & Insured in Texas</h2>
-        <p>We operate under a Texas-licensed Responsible Master Plumber and carry insurance for residential plumbing work across North DFW.</p>
-      </header>
-      <div class="why-grid" style="list-style:none; padding:0; margin:10px 0 0;">
-        <div class="why-item reveal"><strong>Responsible Master Plumber:</strong> [Master Plumber Name]</div>
-        <div class="why-item reveal"><strong>Texas License #:</strong> [License Number]</div>
-        <div class="why-item reveal"><strong>Insurance:</strong> Coverage for residential plumbing projects in North DFW</div>
-      </div>
-    </section>
-
     <section id="services" class="section">
       <div class="service-banner">
-        <h2>Our Services</h2>
-        <p>Upfront flat-rate pricing so you know what to expect before we start.</p>
+        <h2>Core Plumbing Services</h2>
+        <p>Upfront flat-rate pricing on common jobs so you know what to expect before we start.</p>
       </div>
       <div class="service-grid">
         <div class="service-card reveal">
           <div class="icon-circle">DC</div>
           <h3>Drain Cleaning</h3>
-          <p>Clearing clogged drains, sewer lines, and slow-flow issues.</p>
-          <div class="price">$99 – $199</div>
-          <div class="small">Most single-line clogs; final quote on site.</div>
+          <p>Clearing clogged sinks, tubs, and main lines with professional-grade equipment.</p>
+          <div class="price">$99 - $189 flat-rate*</div>
+          <div class="small">*Most single-line clogs. Final quote on site.</div>
         </div>
         <div class="service-card reveal">
           <div class="icon-circle">LR</div>
-          <h3>Leak Detection & Repair</h3>
-          <p>Fixing pipe leaks, slab leaks, and fixture leaks with upfront pricing.</p>
-          <div class="price">$150 – $450</div>
+          <h3>Leak Repair</h3>
+          <p>Stop leaks fast to prevent damage - from dripping faucets to hidden pipe leaks.</p>
+          <div class="price">From $149*</div>
           <div class="small">Includes diagnosis and standard repair.</div>
         </div>
         <div class="service-card reveal">
-          <div class="icon-circle">WR</div>
-          <h3>Water Heater Repair</h3>
-          <p>Fast repair for electric and gas water heaters. Same-day available.</p>
-          <div class="price">$150 – $350</div>
-          <div class="small">Parts and severity may vary.</div>
+          <div class="icon-circle">WH</div>
+          <h3>Water Heaters</h3>
+          <p>Repair or replace tank and tankless units for reliable hot water.</p>
+          <div class="price">$395 - $1,650 range</div>
+          <div class="small">Price depends on unit type and capacity.</div>
         </div>
         <div class="service-card reveal">
-          <div class="icon-circle">WX</div>
-          <h3>Water Heater Replacement</h3>
-          <p>Standard 40–50 gallon installs with haul-away included.</p>
-          <div class="price">$1,600 – $2,200</div>
-          <div class="small">Tankless options quoted on request.</div>
+          <div class="icon-circle">FX</div>
+          <h3>Fixture Installs</h3>
+          <p>Faucets, toilets, disposals, and showers installed with clean finishes.</p>
+          <div class="price">From $125 per fixture</div>
+          <div class="small">Hardware supplied or provided by you.</div>
+        </div>
+        <div class="service-card reveal">
+          <div class="icon-circle">SC</div>
+          <h3>Sewer Camera & Locating</h3>
+          <p>Camera inspections to pinpoint breaks, roots, and blockages before digging.</p>
+          <div class="price">$249 - $349</div>
+          <div class="small">Includes video findings and next steps.</div>
         </div>
       </div>
-      <p class="small" style="margin-top:16px; color: var(--muted);">Need something else? Call us for a custom quote.</p>
+      <p class="small" style="margin-top:16px; color: var(--muted);">Need something else? Tap below to call us for a custom quote.</p>
+      <a class="btn primary" href="tel:9403053083" style="margin-top:10px;">📞 Call Us Now</a>
     </section>
 
     <section id="schedule" class="section" style="padding-top: 70px;">
@@ -742,12 +620,11 @@
       <div class="contact-split">
         <div class="contact-details reveal">
           <h3>Quick ways to reach us</h3>
-          <div class="contact-row"><strong>Phone:</strong> <span aria-hidden="true">📞</span> Call Now</div>
           <div class="contact-row"><strong>Email:</strong> support@theplumbingcompany-tx.com</div>
           <div class="contact-row"><strong>Area:</strong> Little Elm - Oak Point - Aubrey - Prosper</div>
-          <div class="contact-row"><strong>Availability:</strong> Often same-day or next-day scheduling</div>
-          <p class="form-note" style="margin-top:10px;">Flat-rate pricing available on most jobs. No surprise add-ons after we start.</p>
-          <a class="btn primary" href="tel:9403053083" style="margin-top:14px;"><span aria-hidden="true">📞</span> Call Now</a>
+          <div class="contact-row"><strong>Availability:</strong> Same-day appointments available</div>
+          <p class="form-note" style="margin-top:10px;">Flat-rate pricing available on most jobs. No surprise add-ons ever.</p>
+          <a class="btn primary" href="tel:9403053083" style="margin-top:14px;">📞 Call Us Now</a>
         </div>
         <div id="contact" class="card reveal">
           <h3>Online Request</h3>
@@ -771,6 +648,7 @@
                 <option>Leak Repair</option>
                 <option>Water Heater</option>
                 <option>Fixture Install</option>
+                <option>Emergency</option>
                 <option>Other</option>
               </select>
             </div>
@@ -790,25 +668,48 @@
       </div>
     </section>
 
-    <section class="section" id="reviews">
+    <section id="why" class="section" style="padding-top: 10px;">
       <header class="dark">
-        <h2>Customer Reviews</h2>
-        <p>We’re just getting started, so we don’t have public reviews yet. As we complete more jobs, we’ll share real feedback from homeowners here.</p>
+        <h2>Our 5-Star Service Commitment</h2>
       </header>
-      <p style="color: var(--muted); max-width: 800px;">If we’ve already worked for you, we’d be grateful for your honest review once we send a follow-up link after the job.</p>
-      <!-- TODO: When real reviews are available, embed live review widget here. Do not hard-code stars or testimonials. -->
+      <div style="display:grid; gap:24px; max-width:920px;">
+        <div>
+          <h3>Who We Are</h3>
+          <p>The Plumbing Company is a small, local, licensed residential service provider proudly serving North DFW. We built this company with a simple goal: deliver honest work, clear pricing, and reliable support for homeowners who want service they can trust. Every job matters to us, and every customer becomes part of our long-term reputation.</p>
+        </div>
+
+        <div>
+          <h3>Why Homeowners Choose Us</h3>
+          <p>We believe exceptional service starts with the people who provide it. That’s why we invest heavily in our team — paying top-of-market wages, offering performance-based bonuses, and creating an environment where employees are motivated to deliver their best work every day.</p>
+          <p><strong>Our approach is straightforward:</strong></p>
+          <ul>
+            <li>Clear, upfront pricing with no surprises</li>
+            <li>Licensed &amp; insured professionals on every job</li>
+            <li>Fast, reliable scheduling with honest communication</li>
+            <li>Respect for your home and time</li>
+            <li>Quality workmanship that solves the problem right the first time</li>
+          </ul>
+          <p>When our employees are supported, our customers receive the 5-star service they deserve.</p>
+        </div>
+
+        <div>
+          <h3>Our 5-Star Promise</h3>
+          <p>We measure our success by the number of 5-star experiences we earn from homeowners. Our commitment is to show up on time, communicate clearly, do the job right, and leave your home better than we found it.</p>
+          <p>If we fall short in any way, we will make it right — that’s our promise. Your feedback helps shape our company, and we’re committed to earning every single 5-star review one homeowner at a time.</p>
+        </div>
+      </div>
     </section>
 
     <section class="section" id="service-areas">
       <header class="dark">
-        <h2>Service Areas</h2>
-        <p>We proudly serve homeowners across North DFW with clear flat-rate pricing and responsive scheduling.</p>
+        <h2>Plumbing Service Areas</h2>
+        <p>We proudly serve homeowners across North DFW with same-day service and flat-rate pricing.</p>
       </header>
       <div class="area-columns">
         <div class="area-card reveal">
           <strong>Little Elm (75036)</strong>
           <ul>
-            <li>Same-day service</li>
+            <li>Same-day scheduling</li>
             <li>Water heater & leak specialists</li>
           </ul>
         </div>
@@ -822,15 +723,15 @@
         <div class="area-card reveal">
           <strong>Aubrey (76227)</strong>
           <ul>
-            <li>Water heater specialists</li>
-            <li>Fast local response</li>
+            <li>Water heater installs & repairs</li>
+            <li>Drain and sewer specialists</li>
           </ul>
         </div>
         <div class="area-card reveal">
           <strong>Prosper (75078)</strong>
           <ul>
             <li>Full-service plumbing</li>
-            <li>Fast local response</li>
+            <li>Reliable scheduling</li>
           </ul>
         </div>
       </div>
@@ -841,20 +742,20 @@
         <h2>Frequently Asked Questions</h2>
         <p>Quick answers for Little Elm and nearby homeowners.</p>
       </header>
-      <div class="faq-list" style="display:grid; gap:18px; max-width:800px;">
-        <div class="faq-item" style="padding-bottom:12px; border-bottom:1px solid #e4ebf3;">
-          <h3>Do you offer emergency response in Little Elm?</h3>
-          <p>We focus on scheduled and same-day service. For after-hours situations, please leave a message and we’ll respond promptly during business hours.</p>
+      <div class="faq-list" style="display:grid; gap:12px; max-width:800px;">
+        <div class="faq-item">
+          <h3>How fast can you schedule service in Little Elm?</h3>
+          <p>Most non-urgent visits are same or next day based on schedule and parts availability. We’ll confirm your arrival window when you book.</p>
         </div>
-        <div class="faq-item" style="padding-bottom:12px; border-bottom:1px solid #e4ebf3;">
+        <div class="faq-item">
           <h3>Do you offer upfront flat-rate pricing?</h3>
-          <p>Yes. We provide your flat-rate before work begins—no hidden fees or surprise add-ons once we start.</p>
+          <p>Yes. We provide your flat-rate before work begins—no hidden fees, no surprises.</p>
         </div>
-        <div class="faq-item" style="padding-bottom:12px; border-bottom:1px solid #e4ebf3;">
+        <div class="faq-item">
           <h3>How much does water heater replacement cost in Little Elm?</h3>
           <p>Standard 40–50 gallon replacements typically range $1,600–$2,200 including removal and install; tankless systems $2,800–$4,500.</p>
         </div>
-        <div class="faq-item" style="padding-bottom:12px; border-bottom:1px solid #e4ebf3;">
+        <div class="faq-item">
           <h3>Are you licensed and insured?</h3>
           <p>Yes. Fully licensed in Texas and insured; all work meets code and is warrantied.</p>
         </div>
@@ -865,13 +766,16 @@
       </div>
     </section>
 
-    <section class="section" style="padding: 60px 18px 70px; background: #f5f7fb; color: var(--text); margin-top: 20px; border-radius: 12px;">
-      <div style="max-width: 960px; margin: 0 auto; text-align: center;">
-        <h2 style="margin-bottom:8px;">Need Plumbing Help Today?</h2>
-        <p style="margin: 0 0 18px; color: var(--muted);">Get your flat-rate estimate instantly or call our team now.</p>
-        <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
-          <a class="btn primary" href="#hero" style="min-width:200px; justify-content:center;">Get Instant Estimate</a>
-          <a class="btn outline" href="tel:9403053083" style="min-width:200px; justify-content:center; border-color: var(--navy); color: var(--navy);"><span aria-hidden="true">📞</span> Call Now</a>
+    <section class="section" style="padding: 70px 18px 90px; background: #0b2746; color: #fff; margin-top: 30px; border-radius: 0;">
+      <div class="hero-inner" style="grid-template-columns: 1.1fr 0.9fr; align-items: center; padding: 0; gap: 24px;">
+        <div>
+          <div class="eyebrow" style="color:#9cc7ff; margin-bottom:6px;">Ready when you are</div>
+          <h2 style="color:#fff; margin-bottom:10px;">Need plumbing help today?</h2>
+          <p class="subhead" style="color:#e0edff; max-width:620px; margin:0;">Get an instant estimate in 30 seconds, or call us for same-day service across North DFW.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn primary" href="#hero" style="width:100%; max-width:260px; justify-content:center;">Get Instant Estimate</a>
+          <a class="btn outline" href="tel:9403053083" style="border-color:rgba(255,255,255,0.5); color:#fff;">📞 Call Us Now</a>
         </div>
       </div>
     </section>
@@ -886,83 +790,33 @@
         <div class="footer-note">Serving Little Elm, Oak Point, Aubrey, Prosper and nearby communities.</div>
       </div>
       <div>
-      <div class="footer-heading">Contact</div>
-      <div class="footer-note">Phone: <a href="tel:9403053083"><span aria-hidden="true">📞</span> Call Now</a></div>
-      <div class="footer-note">Email: <a href="mailto:support@theplumbingcompany-tx.com">support@theplumbingcompany-tx.com</a></div>
-          <div class="footer-note">Hours: Mon-Sat 7a-7p</div>
-    </div>
-    <div>
-      <div class="footer-heading">Links</div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-note"><a class="btn outline" href="tel:9403053083" style="padding:8px 12px; border-color:rgba(255,255,255,0.4); color:#fff;">📞 Call Us Now</a></div>
+        <div class="footer-note">Email: <a href="mailto:support@theplumbingcompany-tx.com">support@theplumbingcompany-tx.com</a></div>
+        <div class="footer-note">Hours: Mon-Sat 7a-7p</div>
+      </div>
+      <div>
+        <div class="footer-heading">Links</div>
         <div class="footer-note"><a href="#services">Services</a></div>
         <div class="footer-note"><a href="#schedule">Schedule</a></div>
         <div class="footer-note"><a href="#why">Why Us</a></div>
         <div class="footer-note"><a href="#contact">Contact</a></div>
+      </div>
+      <div>
+        <div class="footer-heading">Peace of Mind</div>
+        <div class="footer-note">Licensed - Insured - Upfront Pricing</div>
+        <div class="footer-note">Clean Home Promise</div>
+        <div class="footer-note">Fast local dispatch</div>
+      </div>
     </div>
-    <div>
-      <div class="footer-heading">Peace of Mind</div>
-      <div class="footer-note">Licensed - Insured - Upfront Pricing</div>
-      <div class="footer-note">Clean Home Promise</div>
-      <div class="footer-note">Fast local dispatch</div>
-    </div>
-  </div>
-  <div class="footer-note" style="text-align:center; margin-top:22px;">(c) 2025 The Plumbing Company. All rights reserved.</div>
-  <div class="footer-note" style="margin-top:10px; font-size:10px; line-height:1.5; color:#7f93b0; text-align:center;">
-    * NO PURCHASE NECESSARY TO ENTER OR WIN. A PURCHASE WILL NOT INCREASE YOUR CHANCES OF WINNING. Open to legal residents of the 50 United States, the District of Columbia and Canada. Void in Puerto Rico and US territories and where prohibited by law. Must be age of majority in state/province of residence and licensed driver as of 11/06/2025 MST. Promotion ends 1:00 PM CST on 12/15/2026. Skill-testing question required if a Canadian resident is selected as potential winner. Maximum value of Grand Prize is $202,000 USD. Odds of winning depend upon the number of eligible purchase and non-purchase entries received. See Official Rules for details including how to enter without making a purchase.
-  </div>
-</footer>
-
-  <!-- Mobile sticky footer call bar -->
-  <div class="mobile-call-bar" style="position:fixed; bottom:0; left:0; right:0; padding:10px 14px; background:#0b2746; display:none; z-index:1200; border-top:1px solid rgba(255,255,255,0.12); opacity:1;">
-    <a href="tel:9403053083" style="display:flex; align-items:center; justify-content:center; gap:10px; background:#0b2746; color:#fff; font-weight:700; text-decoration:none; padding:12px 16px; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.2); font-size:16px;">
-      <span aria-hidden="true">📞</span> Call Us Now
-    </a>
-  </div>
+    <div class="footer-note" style="text-align:center; margin-top:22px;">(c) 2025 The Plumbing Company. All rights reserved.</div>
+  </footer>
 
   <script>
     const toggle = document.querySelector('.mobile-toggle');
     toggle.addEventListener('click', () => {
       document.body.classList.toggle('nav-open');
     });
-
-    // Show mobile call bar on small screens
-    (function() {
-      const bar = document.querySelector('.mobile-call-bar');
-      const mq = window.matchMedia('(max-width: 600px)');
-      function toggleBar(e) {
-        if (!bar) return;
-        bar.style.display = e.matches ? 'block' : 'none';
-      }
-      toggleBar(mq);
-      mq.addEventListener('change', toggleBar);
-    })();
-
-    // Zapier hook for lead capture
-    const zapierHook = 'https://hooks.zapier.com/hooks/catch/25608117/ufoj3cu/';
-    const zapierToken = 'plumb-site-secret';
-    async function sendLead(payload = {}) {
-      try {
-        const fd = new FormData();
-        const enriched = {
-          ...payload,
-          token: zapierToken,
-          Name: payload.name || '',
-          Phone: payload.phone || '',
-          Email: payload.email || '',
-          Issue: payload.issue || '',
-          Service: payload.service || '',
-          Message: payload.issue || payload.message || '',
-          Form: payload.form_name || '',
-          'Form Name': payload.form_name || ''
-        };
-        Object.entries(enriched).forEach(([k, v]) => fd.append(k, v || ''));
-        await fetch(zapierHook, {
-          method: 'POST',
-          body: fd
-        });
-      } catch (e) {
-        console.warn('Zapier hook failed', e);
-      }
-    }
 
     const bindForm = (id, handler) => {
       const form = document.getElementById(id);
@@ -976,17 +830,6 @@
           response.textContent = "Thank you! We'll call you shortly to confirm details.";
           setTimeout(() => { response.textContent = ''; }, 6000);
         }
-        // Send to Zapier
-        const name = form.querySelector('[name="name"]')?.value || '';
-        const phone = form.querySelector('[name="phone"]')?.value || '';
-        const email = form.querySelector('[name="email"]')?.value || '';
-        const issue = form.querySelector('[name="issue"]')?.value
-          || form.querySelector('[name="message"]')?.value
-          || form.querySelector('textarea')?.value
-          || '';
-        const service = form.querySelector('[name="service"]')?.value || '';
-        const formName = form.id === 'contactForm' ? 'Online Request' : (form.id || 'Web Form');
-        sendLead({ name, phone, email, issue, service, form_name: formName });
         form.reset();
       });
     };
@@ -1005,13 +848,16 @@
       let idx = 0;
       setInterval(() => {
         const next = (idx + 1) % examples.length;
-        // use CSS custom prop for smoother placeholder fade
-        textarea.style.setProperty('--ph-opacity', '0');
+        const ph = textarea.placeholder;
+        const phEl = textarea;
+        phEl.style.setProperty('--ph-opacity', '0');
+        phEl.style.opacity = '1';
+        phEl.style.transition = 'none';
         setTimeout(() => {
-          textarea.setAttribute('placeholder', examples[next]);
+          phEl.setAttribute('placeholder', examples[next]);
           idx = next;
-          textarea.style.setProperty('--ph-opacity', '1');
-        }, 400);
+          phEl.style.transition = '';
+        }, 200);
       }, 6000);
     })();
 
@@ -1032,25 +878,13 @@
         'Leak Repair': '$149 - $450',
         'Drain/Clog': '$150 - $400',
         'Fixture Install': '$125 - $350',
+        'Emergency': 'Call for fast quote',
         'Other': '$150 - $650'
       };
-
-      function setCardHeight() {
-        const card = document.querySelector('.hero-card');
-        const activePane = document.querySelector('.diag-pane.active');
-        if (card && activePane) {
-          const heading = card.querySelector('h3');
-          const headingHeight = heading ? heading.offsetHeight : 0;
-          const gapAllowance = 24; // account for flex gap + padding
-          const h = Math.max(activePane.scrollHeight + headingHeight + gapAllowance, 360);
-          card.style.height = h + 'px';
-        }
-      }
 
       function showStep(n) {
         current = n;
         panes.forEach(p => p.classList.toggle('active', p.dataset.pane === String(n)));
-        setCardHeight();
       }
 
       function buildResults(service, zip, issue) {
@@ -1076,14 +910,6 @@
           const zip = document.getElementById('hero-zip')?.value || '';
           const issue = document.getElementById('hero-issue')?.value || '';
           buildResults(service, zip, issue);
-          sendLead({
-            name: '',
-            phone: '',
-            email: '',
-            issue,
-            service,
-            form_name: 'Instant Estimate'
-          });
           showStep(2);
         });
       }
@@ -1094,31 +920,7 @@
       if (back1) back1.addEventListener('click', () => showStep(1));
       if (back2) back2.addEventListener('click', () => showStep(2));
 
-      // initialize card height
       showStep(1);
-      window.addEventListener('resize', setCardHeight);
-    })();
-
-    // Send hero (Instant Estimate) step-3 form to Zapier as well
-    (function() {
-      const heroForm = document.getElementById('heroForm');
-      if (!heroForm) return;
-      heroForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('hero-name')?.value || '';
-        const phone = document.getElementById('hero-phone')?.value || '';
-        const email = document.getElementById('hero-email')?.value || '';
-        const issue = document.getElementById('hero-issue')?.value || '';
-        const service = document.getElementById('hero-service')?.value || 'Other';
-        const zip = document.getElementById('hero-zip')?.value || '';
-        sendLead({ name, phone, email, issue, service, zip, form_name: 'Instant Estimate' });
-        const resp = heroForm.querySelector('.form-response');
-        if (resp) {
-          resp.textContent = "Thank you! We'll reach out shortly.";
-          setTimeout(() => { resp.textContent = ''; }, 6000);
-        }
-        heroForm.reset();
-      });
     })();
 
     const observer = new IntersectionObserver(entries => {
@@ -1226,10 +1028,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Do you offer emergency response in Little Elm?",
+            "name": "How fast can you schedule service in Little Elm?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We focus on scheduled and same-day service. For after-hours situations, please leave a message and we’ll respond promptly during business hours."
+              "text": "Most non-urgent visits are same or next day based on schedule and parts availability. We confirm your arrival window when you book."
             }
           },
           {
@@ -1237,7 +1039,7 @@
             "name": "Do you offer upfront flat-rate pricing?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. We provide your flat-rate before work begins—no hidden fees or surprise add-ons once we start."
+              "text": "Yes. We provide your flat-rate before work begins—no hidden fees, no surprises."
             }
           },
           {
